@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "comintel-business/general-footer",
+  "title": "Comintel Business - General Footer Block",
+  "editorScript": "file:./index.js",
+  "description": "General Footer block for Comintel Business theme",
+  "render": "file:./render.php",
+  "category": "comintel-business",
+  "attributes": {
+    "footerDesc": {
+      "type": "string",
+      "default": "PT Comintel Tamarang Pratama is a trusted provider of innovative IT and telecommunication solutions, helping businesses enhance efficiency and stay competitive in a rapidly evolving digital world."
+    },
+    "footerCopyright": {
+      "type": "string",
+      "default": "Copyright © 2025 PT Comintel Tamarang Pratama. All rights reserved"
+    }
+  },
+  "viewScriptModule": "file:./view.js",
+  "supports": {
+    "customClassName": false,
+    "multiple": false,
+    "renaming": false
+  }
+}

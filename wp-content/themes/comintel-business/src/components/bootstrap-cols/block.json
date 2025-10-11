@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "comintel-business-component/bootstrap-cols",
+  "title": "Bootstrap Column Component Block",
+  "editorScript": "file:./index.js",
+  "description": "Bootstrap Column Component block for Comintel Business theme",
+  "render": "file:./render.php",
+  "category": "comintel-business",
+  "attributes": {
+    "className": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "renaming": false
+  }
+}

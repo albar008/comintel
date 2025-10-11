@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=window.wp.blocks,t=window.wp.blockEditor,s=JSON.parse('{"UU":"comintel-business/project-container"}'),i=window.ReactJSXRuntime;(0,e.registerBlockType)(s.UU,{edit:function({attributes:e,setAttributes:s}){const n=(0,t.useBlockProps)();return(0,i.jsx)("div",{...n,children:(0,i.jsx)("p",{children:"Hello"})})},save:()=>null})})();

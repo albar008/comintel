@@ -1,0 +1,15 @@
+.row-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  .col-grid {
+    display: grid;
+    grid-template-rows: max-content auto;
+    grid-row: span 2;
+  }
+  @supports(grid-template-rows: subgrid) {
+    .col-grid {
+      grid-template-rows: subgrid;
+    }
+  }
+}

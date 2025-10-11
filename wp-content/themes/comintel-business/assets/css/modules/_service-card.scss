@@ -1,0 +1,45 @@
+.service-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  align-items: center;
+}
+.service-card {
+  padding-inline: 1em;
+  padding-block: 2em;
+  background-color: var(--brand-accent1);
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__img-box{
+    display: inline-block;
+    padding-inline: 10px;
+    padding-block: 15px;
+    border: 1px solid black;
+    margin-bottom: 0;
+    margin-block: 1rem;
+  }
+  &__category {
+    background-color: #BED4F7;
+    padding-inline: 1rem;
+    border-radius: 10px;
+  }
+  > h4 {
+    margin-block: .5em;
+  }
+  &__container{
+    margin-bottom: 0;
+  }
+}
+
+@supports(grid-template-rows: subgrid) {
+  .service-card {
+    display: grid;
+    gap: 0;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+  }
+}

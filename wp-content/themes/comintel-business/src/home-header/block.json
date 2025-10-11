@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "comintel-business/home-header",
+  "title": "Comintel Business - Home Header Block",
+  "editorScript": "file:./index.js",
+  "description": "Home Header block for Comintel Business theme",
+  "render": "file:./render.php",
+  "category": "comintel-business",
+  "attributes": {
+    "headerTitle": {
+      "type": "string",
+      "default": "Computer technology, Information systems, and Telecommunication."
+    },
+    "headerSubTitle": {
+      "type": "string",
+      "default": "We are Focused on"
+    },
+    "headerDesc": {
+      "type": "string",
+      "default": "by providing the infrastructure, software, and services that drive digital transformation across various sectors."
+    },
+    "headerCtaText": {
+      "type": "string",
+      "default": "Discover More"
+    }
+  },
+  "supports": {
+    "customClassName": false,
+    "multiple": false,
+    "renaming": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "comintel-business-theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "run-s buildIndex buildBlocks",
+    "buildIndex": "wp-scripts build src/index",
+    "buildBlocks": "wp-scripts build --experimental-modules",
+    "start": "wp-scripts start src/index",
+    "blocks": "wp-scripts start --experimental-modules",
+    "dev": "wp-scripts start",
+    "devFast": "wp-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/scripts": "*",
+    "axios": "^0.21.1",
+    "clsx": "^2.1.1",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.85.1"
+  }
+}

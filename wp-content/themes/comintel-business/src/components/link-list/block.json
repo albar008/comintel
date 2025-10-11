@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "comintel-business-component/link-list",
+  "title": "Comintel Business Component - Link List Block",
+  "editorScript": "file:./index.js",
+  "description": "Link List block for Comintel Business theme",
+  "render": "file:./render.php",
+  "category": "comintel-business",
+  "attributes": {
+    "listTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "className": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "parent": [
+    "comintel-business/general-footer",
+    "core/column"
+  ],
+  "supports": {
+    "customClassName": false,
+    "renaming": false
+  }
+}

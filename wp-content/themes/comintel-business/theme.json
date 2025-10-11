@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "description": "Tema kustom untuk proyek WordPress",
+  "version": 3,
+  "settings": {
+    "layout": {
+      "contentSize": "840px"
+    }
+  },
+  "templateParts": [
+    {
+      "area": "comintel-business",
+      "name": "home-header",
+      "title": "Header Comintel Business"
+    },
+    {
+      "area": "comintel-business",
+      "name": "footer",
+      "title": "General Footer Comintel Business"
+    }
+  ]
+}

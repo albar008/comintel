@@ -1,0 +1,44 @@
+@keyframes animate-scrl-to-top-icon {
+  from {
+    top: 12px;
+  }
+
+  to {
+    top: 7px;
+  }
+}
+
+#scroll-to-top {
+  --z-index-scroll: 100;
+  width: 52px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid var(--brand-secondary);
+  border-left: 1px solid var(--brand-secondary);
+  border-right: 1px solid var(--brand-secondary);
+  position: fixed;
+  z-index: var(--z-index-scroll);
+  bottom: -40px;
+  border-radius: 10px 10px 0 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  cursor: pointer;
+  transition: bottom 0.5s;
+  &.scroll-to-top--show{
+    bottom: 0;
+  }
+
+  >.arrow-up {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 7px;
+  }
+
+  &:hover {
+    >.arrow-up--animate {
+      animation: animate-scrl-to-top-icon 1s linear 5;
+      animation-fill-mode: forwards;
+    }
+  }
+}

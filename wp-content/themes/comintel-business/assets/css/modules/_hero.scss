@@ -1,0 +1,126 @@
+@keyframes hero-animate-scrl-down-icon {
+  from {
+    top: 10px;
+  }
+  to {
+    top: 13px;
+  }
+}
+
+#hero {
+  background-color: white;
+  height: min(100svh, 100svh);
+  background-image: url("../images/hero-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--brand-white);
+  position: relative;
+
+  .hero__main-title {
+    line-height: 1;
+  }
+
+  .hero__content-container {
+    padding-top: 2em;
+  }
+
+  .hero__scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:hover{
+      cursor: pointer;
+    }
+
+    >button {
+      background-color: transparent;
+      border-color: white;
+      border-width: 1px;
+      border-style: dashed;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      text-indent: 3rem;
+      white-space: nowrap;
+      position: relative;
+
+      &::after {
+        content: '\2193';
+        position: absolute;
+        color: white;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-indent: 0;
+      }
+    }
+
+    &>small {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    &__arrow{
+      top: 10px;
+      animation: hero-animate-scrl-down-icon 1s linear 5;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+// Mobile Landscape
+@media (orientation: landscape) {
+  #hero {
+    height: min(150svh, 150svh);
+
+    .hero__scroll-down {
+      display: none !important;
+    }
+  }
+}
+
+// Tablet Portrait
+@media (min-width: 768px) and (orientation: portrait) {
+  #hero {
+    height: min(60svh, 60svh);
+
+    .hero__content-container {
+      padding-top: 4em;
+    }
+
+    .hero__main-title {
+      font-size: 3rem;
+    }
+
+    .hero__scroll-down {
+      display: none !important;
+    }
+  }
+}
+
+// Desktop
+@media (min-width: 992px) {
+  #hero {
+    height: min(100svh, 100svh);
+    font-size: 20px;
+
+    .hero__content-container {
+      padding-block-start: 5em;
+    }
+
+    .hero__main-title {
+      font-size: 2.5em;
+    }
+
+    .hero__scroll-down {
+      display: flex !important;
+    }
+  }
+}

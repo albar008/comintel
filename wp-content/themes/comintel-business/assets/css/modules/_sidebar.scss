@@ -1,0 +1,34 @@
+.sidebar-container {
+  &--stick {
+    position: sticky;
+    top: 6em;
+  }
+  .side-panel {
+    &__container {
+      padding-inline: 1rem;
+      padding-block: 1rem;
+      border-radius: 5px;
+      margin-block-end: 1.5em;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.10);
+    }
+
+    &__categories-list {
+      max-height: 200px;
+      overflow-y: auto;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      >li {
+        border-top: 1px solid #D0D0D1;
+        padding-block: .8rem;
+
+        >a {
+          display: inline-block;
+          font-size: .9rem;
+          color: #616161;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+# WordPress core
+wp-admin/
+wp-includes/
+
+# Uploads
+wp-content/uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build & dependencies
+node_modules/
+vendor/
+
+# Config files
+wp-config.php
+.env
+
+# Ignore node_modules in any plugin or theme
+wp-content/**/node_modules/

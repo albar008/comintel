@@ -1,0 +1,28 @@
+/* 
+* Template Name: CPT - Business
+* Author: Albar
+*/
+@use "normalize.css";
+@use 'variables';
+@use 'modules/global';
+@use 'modules/sidebar';
+@use 'modules/nav';
+@use 'modules/button';
+@use 'modules/banner';
+@use 'modules/core-value';
+@use 'modules/grid-image';
+@use 'modules/hero';
+@use 'modules/page-header';
+@use 'modules/solution-card';
+@use 'modules/service-card';
+@use 'modules/post-card';
+@use 'modules/comments';
+@use 'modules/team-card';
+@use 'modules/footer';
+@use 'modules/pagination';
+@use 'modules/contact';
+@use 'modules/wp-blocks';
+@use 'modules/link_page';
+@use 'modules/project';
+@use 'modules/scroll-to-top';
+@use 'modules/list';

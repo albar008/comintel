@@ -1,0 +1,67 @@
+.team-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  align-items: center;
+}
+.team-card {
+  background-color: var(--brand-white);
+  .team-card__img-box{
+    display: block;
+    width: 100%;
+    height: 200px;
+    margin-block-end: 0;
+    position: relative;
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      inline-size: 100%;
+      block-size: 100%;
+    }
+    .team-card__sosmed {
+      position: absolute;
+      width: 35px;
+      max-block-size: 120px;
+      overflow: hidden;
+      background-color: var(--brand-secondary);
+      right: -20%;
+      top: 10%;
+      transition: right 0.5s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      > a {
+        color: var(--brand-black);
+        font-size: 1.5em;
+      }
+    }
+    &:hover .team-card__sosmed {
+      right: 5%;
+    }
+  }
+  .team-card__content{
+    padding-inline: 1em;
+    padding-block: 1em;
+    h3 {
+      color: var(--brand-black);
+      margin-bottom: 0;
+      > a {
+        color: inherit;
+      }
+    }
+    p {
+      font-style: italic;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@supports(grid-template-rows: subgrid) {
+  .team-card {
+    display: grid;
+    gap: 0;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+  }
+}

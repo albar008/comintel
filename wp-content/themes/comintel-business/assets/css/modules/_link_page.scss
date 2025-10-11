@@ -1,0 +1,18 @@
+.com-single-page-links-container{
+  padding-block: 1em;
+  margin-block-end: 1em;
+  border-top: 1px solid var(--brand-primary);
+  border-bottom: 1px solid var(--brand-primary);
+  // text-align: center;
+  > a:has(.next-page){
+    float: right;
+  }
+  > a:has(.prev-page){
+    float: left;
+  }
+  &::after{
+    display: block;
+    content: '';
+    clear: both;
+  }
+}

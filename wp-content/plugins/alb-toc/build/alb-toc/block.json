@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "alb/alb-toc",
+  "version": "0.1.0",
+  "title": "Alb Toc",
+  "category": "alb",
+  "icon": "smiley",
+  "description": "TOC Block.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "customClassName": false,
+    "multiple": false,
+    "renaming": false
+  },
+  "attributes": {
+    "tocTitle": {
+      "type": "string",
+      "default": "Table of Contents"
+    },
+    "tocList": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "allowedBlocks": [],
+  "textdomain": "alb-toc",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js",
+  "script": [
+    "file:./script.js"
+  ],
+  "render": "file:./render.php"
+}

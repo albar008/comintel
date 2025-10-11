@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "alb/alb-toc-heading",
+	"version": "0.1.0",
+	"title": "Alb Toc Heading",
+	"category": "alb",
+	"icon": "heading",
+	"description": "TOC Heading Block.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"customClassName": false,
+		"renaming": false
+	},
+	"attributes": {
+		"anchorId": {
+			"type": "string"
+		},
+		"content": {
+			"type": "rich-text",
+			"source": "rich-text",
+			"selector": "h1,h2,h3,h4,h5,h6",
+			"role": "content"
+		},
+		"level" : {
+			"type": "integer",
+			"default": 1
+		}
+	},
+	"allowedBlocks": [],
+	"textdomain": "alb-toc",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

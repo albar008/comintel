@@ -1,0 +1,1 @@
+/Users/mohamadalbar/Local Sites/comintel-tp/app/public/wp-content/plugins/query-monitor/wp-content/db.php

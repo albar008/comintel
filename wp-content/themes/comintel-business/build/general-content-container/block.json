@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "comintel-business/general-content-container",
+  "title": "General Content Container Block",
+  "editorScript": "file:./index.js",
+  "description": "General Content Container block for Comintel Business theme",
+  "render": "file:./render.php",
+  "category": "comintel-business",
+  "allowedBlocks": [
+    "comintel-business-component/bootstrap-cols"
+  ],
+  "attributes": {
+    "className": {
+      "type": "string"
+    },
+    "bgImgId": {
+      "type": "number"
+    },
+    "bgImgUrlLarge": {
+      "type": "string"
+    },
+    "bgImgUrlThumb": {
+      "type": "string"
+    }
+  },
+  "viewScriptModule": "file:./view.js",
+  "supports": {
+    "renaming": false,
+    "color": {
+      "text": false
+    }
+  }
+}
