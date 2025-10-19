@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the WordPress - 6.8.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-07-15 02:43:12+0000\n"
+"PO-Revision-Date: 2025-10-15 12:30:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.1\n"
+"X-Generator: GlotPress/4.0.2\n"
 "Language: id\n"
 "Project-Id-Version: WordPress - 6.8.x - Development\n"
 
@@ -286,6 +286,11 @@ msgstr "Januari"
 msgid "Uncategorized"
 msgstr "Tak Berkategori"
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:223
+#: wp-admin/users.php:235
+msgid "Sorry, you are not allowed to edit users."
+msgstr "Maaf, Anda tak diizinkan mengedit pengguna."
+
 #: wp-includes/blocks/query/block.json
 msgctxt "block keyword"
 msgid "custom post types"
@@ -310,6 +315,12 @@ msgstr "Tampilkan jumlah total hasil dalam kueri."
 msgctxt "block title"
 msgid "Query Total"
 msgstr "Total Kueri"
+
+#: wp-includes/js/dist/edit-site.js:19552
+#: wp-admin/includes/class-wp-theme-install-list-table.php:63
+msgctxt "noun"
+msgid "Upload"
+msgstr "Unggah"
 
 #. translators: %s: list of allowed collection roots
 #: wp-includes/class-wp-block-metadata-registry.php:127
@@ -410,11 +421,11 @@ msgstr "Daftar Term"
 msgid "Plugin that registered the template."
 msgstr "Plugin yang mendaftarkan template."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3084
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3090
 msgid "Limit result set to items assigned one or more given formats."
 msgstr "Batasi hasil pada item dengan satu atau lebih format yang ditetapkan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2978
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2984
 msgid "How to interpret the search input."
 msgstr "Cara menginterpretasikan input pencarian."
 
@@ -549,7 +560,7 @@ msgstr "URI untuk direktori template tema. Jika ini adalah tema turunan, ini mer
 msgid "The uri for the theme's stylesheet directory."
 msgstr "URI untuk direktori stylesheet tema ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2452
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2458
 msgid "An array of the class names for the post container element."
 msgstr "Array nama kelas untuk elemen kontainer pos."
 
@@ -691,7 +702,7 @@ msgstr "Filter %1$s harus menghasilkan nilai bilangan bulat lebih besar dari 0."
 
 #. translators: 1: Item name, 2: Item type, 3: Item index, 4: Total items, 5:
 #. Item parent, 6: Item depth.
-#: wp-includes/class-wp-customize-nav-menus.php:570 wp-admin/nav-menus.php:588
+#: wp-includes/class-wp-customize-nav-menus.php:576 wp-admin/nav-menus.php:588
 msgid "Edit %1$s (%2$s, sub-item %3$d of %4$d under %5$s, level %6$d)"
 msgstr "Edit %1$s (%2$s, sub-item %3$d dari %4$d di bawah %5$s, level %6$d)"
 
@@ -699,7 +710,7 @@ msgstr "Edit %1$s (%2$s, sub-item %3$d dari %4$d di bawah %5$s, level %6$d)"
 #. Item parent.
 #. translators: 1: Title of a menu item, 2: Type of a menu item, 3, Item index,
 #. 4, Total items, 5: Item parent.
-#: wp-includes/class-wp-customize-nav-menus.php:568
+#: wp-includes/class-wp-customize-nav-menus.php:574
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:88
 #: wp-admin/nav-menus.php:586
 msgid "Edit %1$s (%2$s, sub-item %3$d of %4$d under %5$s)"
@@ -708,7 +719,7 @@ msgstr "Edit %1$s (%2$s, sub-item %3$d dari %4$d di bawah %5$s)"
 #. translators: 1: Item name, 2: Item type, 3: Item index, 4: Total items.
 #. translators: 1: Title of a menu item, 2: Type of a menu item. 3: Item index,
 #. 4: Total items.
-#: wp-includes/class-wp-customize-nav-menus.php:566
+#: wp-includes/class-wp-customize-nav-menus.php:572
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:83
 #: wp-admin/nav-menus.php:584
 msgid "Edit %1$s (%2$s, %3$d of %4$d)"
@@ -2098,8 +2109,8 @@ msgstr "https://wordpress.org/documentation/article/reset-your-password/"
 msgid "https://wordpress.org/documentation/article/site-editor/"
 msgstr "https://wordpress.org/documentation/article/site-editor/"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3040
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1654
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3046
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1660
 msgid "Array of column names to be searched."
 msgstr "Array pada nama kolom yang akan dicari."
 
@@ -3296,11 +3307,11 @@ msgstr "Area Template Part"
 msgid "The server cannot process the image. This can happen if the server is busy or does not have enough resources to complete the task. Uploading a smaller image may help. Suggested maximum size is 2560 pixels."
 msgstr "Server tidak dapat memproses gambar. Hal ini disebabkan karena server sibuk atau sumber daya tidak cukup untuk menyelesaikan tugas. Mengunggah gambar yang lebih kecil mungkin membantu. Ukuran maksimal yang disarankan adalah 2560 piksel."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1644
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1650
 msgid "Limit result set to users who have published posts."
 msgstr "Batasi jumlah hasil kepada pengguna yang telah mempublikasikan artikel."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1628
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1634
 msgid "Limit result set to users matching at least one specific capability provided. Accepts csv list or single capability."
 msgstr "Batasi jumlah hasil untuk pengguna sesuai setidaknya satu kapabilitas yang disediakan. Terima kapabilitas daftar csv atau satuan."
 
@@ -3668,6 +3679,10 @@ msgstr "Sunting Menu Navigasi"
 #: wp-includes/post.php:527
 msgid "New Navigation Menu"
 msgstr "Menu Navigasi Baru"
+
+#: wp-includes/post.php:525 wp-includes/post.php:526
+msgid "Add Navigation Menu"
+msgstr "Tambahkan Menu Navigasi Baru"
 
 #: wp-includes/post.php:524
 msgctxt "post type singular name"
@@ -4149,23 +4164,23 @@ msgctxt "block keyword"
 msgid "link"
 msgstr "tautan"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2405
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2411
 msgid "An alphanumeric identifier for the post unique to its type."
 msgstr "Pengidentifikasi alfanumerik untuk pos sesuai dengan jenisnya."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2398
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2404
 msgid "The date the post was last modified, as GMT."
 msgstr "Tanggal terakhir saat pos diubah, dalam GMT."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2391
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2397
 msgid "The date the post was last modified, in the site's timezone."
 msgstr "Tanggal terakhir saat pos diubah, dalam zona waktu situs."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2364
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2370
 msgid "GUID for the post, as it exists in the database."
 msgstr "GUID untuk pos, seperti yang ada di dalam database."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2346
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2352
 msgid "The date the post was published, in the site's timezone."
 msgstr "Tanggal saat pos dipublikasikan, dalam zona waktu situs."
 
@@ -5025,7 +5040,7 @@ msgstr "Pengaturan instance widget saat ini."
 msgid "The widget type id."
 msgstr "ID tipe widget"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1597
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1603
 msgid "Sort collection by user attribute."
 msgstr "Urutkan koleksi berdasarkan atribut pengguna."
 
@@ -5171,35 +5186,35 @@ msgstr "ID untuk penulis revisi."
 msgid "Unique identifier for the revision."
 msgstr "Pengidentifikasi unik untuk revisi."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3299
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3305
 msgid "Whether items must be assigned all or any of the specified terms."
 msgstr "Apakah item harus diberikan akses ke semua atau salah satu term yang ditentukan."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:349
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2996
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3002
 msgid "Sort collection by post attribute."
 msgstr "Sortir koleksi berdasarkan atribut artikel."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2650
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2656
 msgid "The order of the post in relation to other posts."
 msgstr "Urutan artikel dalam kaitannya dengan artikel lain."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2526
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2532
 msgid "The title for the post."
 msgstr "Judul untuk pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2422
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2428
 msgid "Type of post."
 msgstr "Tipe pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2384
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2390
 msgid "URL to the post."
 msgstr "URL ke pos"
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:505
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-families-controller.php:293
 #: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:118
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2378
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2384
 msgid "Unique identifier for the post."
 msgstr "Pengidentifikasi unik untuk pos."
 
@@ -5902,39 +5917,39 @@ msgid "Sorry, you are not allowed to list application passwords for this user."
 msgstr "Maaf, Anda tidak diizinkan untuk membuat daftar kata sandi aplikasi untuk pengguna ini."
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3293
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3299
 msgid "Limit result set to items with specific terms assigned in the %s taxonomy."
 msgstr "Batasi hasil yang ditetapkan ke item dengan term spesifik yang ditetapkan dalam taksonomi %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3280
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3286
 msgid "Whether to include child terms in the terms limiting the result set."
 msgstr "Apakah akan memasukkan term turunan dalam term yang membatasi kumpulan hasil."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3272
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3278
 msgid "Term IDs."
 msgstr "ID Term"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3268
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3274
 msgid "Perform an advanced term query."
 msgstr "Jalankan sebuah kueri term tingkat lanjut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3267
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3273
 msgid "Term ID Taxonomy Query"
 msgstr "Kueri Taksonomi ID Term"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3260
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3266
 msgid "Match terms with the listed IDs."
 msgstr "Cocokkan term dengan ID yang terdaftar."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3259
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3265
 msgid "Term ID List"
 msgstr "Daftar ID Term"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2947
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2953
 msgid "Limit response to posts modified before a given ISO8601 compliant date."
 msgstr "Batasi tanggapan untuk artikel yang diubah sebelum tanggal tertentu sesuai ISO8601."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2916
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2922
 msgid "Limit response to posts modified after a given ISO8601 compliant date."
 msgstr "Batasi tanggapan untuk artikel yang diubah setelah tanggal tertentu sesuai ISO8601."
 
@@ -6324,7 +6339,7 @@ msgid "This theme does not work with your versions of WordPress and PHP."
 msgstr "Tema ini tidak berfungsi dengan versi WordPress dan PHP Anda."
 
 #. translators: %s: register_rest_field
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2757
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2763
 msgid "Please use %s to add new schema properties."
 msgstr "Mohon gunakan %s untuk menambahkan properti skema. "
 
@@ -6717,6 +6732,10 @@ msgstr "Tidak dapat menemukan informasi meta untuk berkas."
 msgid "Limit result set to blocks matching the search term."
 msgstr "Batasi hasil yang telah diatur untuk menghalangi penyesuaian istilah pencarian."
 
+#: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:288
+msgid "The date when the block was last updated, in human readable format."
+msgstr "Tanggal pembaruan blok terakhir, dalam format yang cukup dapat dibaca manusia."
+
 #: wp-includes/rest-api/endpoints/class-wp-rest-block-directory-controller.php:276
 msgid "The block icon."
 msgstr "Ikon blok."
@@ -6765,7 +6784,7 @@ msgstr "Nama blok, dalam format namespace/nama blok."
 msgid "Sorry, you are not allowed to browse the block directory."
 msgstr "Maaf, Anda tidak diizinkan untuk menjelajahi direktori blok."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1318
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1324
 msgid "This username is invalid because it uses illegal characters. Please enter a valid username."
 msgstr "Nama pengguna ini tidak sah karena menggunakan karakter yang ilegal. Mohon masukkan nama pengguna yang sah."
 
@@ -7404,13 +7423,13 @@ msgstr "Balasan untuk: %s"
 msgid "HTTP redirect status code must be a redirection code, 3xx."
 msgstr "Kode status pengalihan HTTP harus berupa kode pengalihan, 3xx."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3250
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3256
 msgid "Limit result set based on relationship between multiple taxonomies."
 msgstr "Batasi hasil yang ditetapkan berdasarkan hubungan antara beberapa taksonomi."
 
 #. translators: 1: The taxonomy name, 2: The property name, either 'rest_base'
 #. or 'name', 3: The conflicting value.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2703
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2709
 msgid "The \"%1$s\" taxonomy \"%2$s\" property (%3$s) conflicts with an existing property on the REST API Posts Controller. Specify a custom \"rest_base\" when registering the taxonomy to avoid this error."
 msgstr "Konflik (%3$s) properti \"%2$s\" taksonomi \"%1$s\" dengan properti yang ada di REST API Pengontrol Artikel. Tentukan \"rest_base\" khusus saat mendaftarkan taksonomi untuk menghindari eror ini."
 
@@ -8640,19 +8659,19 @@ msgstr "Eror handler pencarian internal."
 msgid "REST search handlers must extend the %s class."
 msgstr "Handler pencari REST harus memperluas kelas %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2801
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2807
 msgid "The current user can post unfiltered HTML markup and JavaScript."
 msgstr "Pengguna saat ini dapat memposkan markup HTML dan JavaScript tanpa filter."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2571
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2577
 msgid "Version of the content block format used by the post."
 msgstr "Versi dari format blok konten yang digunakan oleh pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2445
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2451
 msgid "Slug automatically generated from the post title."
 msgstr "Slug otomatis dibuat dari judul pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2438
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2444
 msgid "Permalink template for the post."
 msgstr "Templat permalink untuk pos."
 
@@ -8758,24 +8777,24 @@ msgid "[%1$s] Action Confirmed: %2$s"
 msgstr "[%1$s] Tindakan Terkonfirmasi: %2$s"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2855
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2861
 msgid "The current user can create terms in the %s taxonomy."
 msgstr "Pengguna ini dapat membuat istilah pada taksonomi %s"
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2853
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2859
 msgid "The current user can assign terms in the %s taxonomy."
 msgstr "Pengguna ini dapat menetapkan istilah pada taksonomi %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2834
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2840
 msgid "The current user can change the author on this post."
 msgstr "Pengguna ini dapat mengubah penulis pada pos ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2818
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2824
 msgid "The current user can sticky this post."
 msgstr "Pengguna ini dapat menyematkan pos ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2785
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2791
 msgid "The current user can publish this post."
 msgstr "Pengguna ini dapat menerbitkan pos ini."
 
@@ -9117,7 +9136,7 @@ msgstr "Penulis Komentar"
 msgid "WordPress Comments"
 msgstr "Komentar WordPress"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1636
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1642
 msgid "Limit result set to users who are considered authors."
 msgstr "Batasi kumpulan hasil kepada pengguna yang dianggap penulis."
 
@@ -9211,7 +9230,7 @@ msgctxt "tags"
 msgid "Most Used"
 msgstr "Paling Banyak Digunakan"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1114
+#: wp-includes/class-wp-customize-nav-menus.php:1120
 msgid "Click &#8220;Next&#8221; to start adding links to your new menu."
 msgstr "Klik &#8220;Selanjutnya&#8221; untuk mulai menambahkan tautan pada menu baru Anda."
 
@@ -9307,15 +9326,15 @@ msgctxt "menu locations"
 msgid "Where do you want this menu to appear?"
 msgstr "Di manakah Anda menginginkan menu ini tampil?"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1128
+#: wp-includes/class-wp-customize-nav-menus.php:1134
 msgid "You&#8217;ll create a menu, assign it a location, and add menu items like links to pages and categories. If your theme has multiple menu areas, you might need to create more than one."
 msgstr "Anda akan membuat sebuah menu, menentukan lokasinya, dan menambahkan anak menu seperti tautan ke beberapa laman atau kategori. Jika tema Anda memiliki beberapa area menu, mungkin Anda perlu membuat lebih dari satu lokasi menu."
 
-#: wp-includes/class-wp-customize-nav-menus.php:1125
+#: wp-includes/class-wp-customize-nav-menus.php:1131
 msgid "It does not look like your site has any menus yet. Want to build one? Click the button to start."
 msgstr "Sepertinya situs web Anda belum memiliki menu satu pun. Ingin membuat menu? Klik tombol untuk memulai."
 
-#: wp-includes/class-wp-customize-nav-menus.php:702
+#: wp-includes/class-wp-customize-nav-menus.php:708
 msgctxt "menu locations"
 msgid "View All Locations"
 msgstr "Lihat Semua Lokasi"
@@ -9328,7 +9347,7 @@ msgstr "Sambil meninjau tema baru, Anda dapat terus menyesuaikan beberapa hal se
 msgid "Looking for a theme? You can search or browse the WordPress.org theme directory, install and preview themes, then activate them right here."
 msgstr "Sedang mencari sebuah tema? Anda dapat mencari atau menjelajahi direktori tema WordPress.org, memasang dan meninjau tema-tema, lalu mengaktifkannya di sini."
 
-#: wp-includes/class-wp-customize-nav-menus.php:702
+#: wp-includes/class-wp-customize-nav-menus.php:708
 msgctxt "menu locations"
 msgid "View Location"
 msgstr "Lihat Lokasi"
@@ -9339,7 +9358,7 @@ msgstr "Lihat Lokasi"
 msgid "No themes found. Try a different search."
 msgstr "Tema tidak ditemukan. Coba pencarian lain."
 
-#: wp-includes/class-wp-customize-nav-menus.php:688
+#: wp-includes/class-wp-customize-nav-menus.php:694
 msgid "Your theme can display menus in one location. Select which menu you would like to use."
 msgstr "Tema Anda dapat menampilkan beberapa menu dalam satu lokasi. Pilih menu mana yang ingin Anda gunakan."
 
@@ -9909,7 +9928,7 @@ msgstr "Mencari tema WordPress.org"
 msgid "Install &amp; Preview"
 msgstr "Memasang &amp; Pratinjau"
 
-#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:730
+#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:739
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:883
 msgid "Invalid URL."
 msgstr "URL Tidak Sah."
@@ -9936,6 +9955,25 @@ msgstr "Ganti audio"
 #: wp-includes/customize/class-wp-customize-media-control.php:242
 msgid "Select audio"
 msgstr "Pilih audio"
+
+#. translators: %s: Header height in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:231
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Klik &#8220;Tambah Gambar Baru&#8221; untuk mengunggah berkas gambar dari komputer Anda. Tema Anda paling cocok dengan gambar tajuk tinggi %s piksel &#8212; Anda bisa memangkasnya setelah selesai diunggah untuk menyesuaikan ukurannya."
+
+#. translators: %s: Header width in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:225
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Klik &#8220;Tambah Gambar Baru&#8221; untuk mengunggah berkas gambar dari komputer Anda. Tema Anda paling cocok dengan gambar tajuk lebar %s piksel &#8212; Anda bisa memangkasnya setelah selesai diunggah untuk menyesuaikan ukurannya."
+
+#. translators: %s: Header size in pixels.
+#: wp-includes/customize/class-wp-customize-header-image-control.php:219
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Klik &#8220;Tambah Gambar Baru&#8221; untuk mengunggah berkas gambar dari komputer Anda. Tema Anda paling cocok dengan gambar tajuk ukuran %s piksel &#8212; Anda bisa memangkasnya setelah selesai diunggah untuk menyesuaikan ukurannya."
+
+#: wp-includes/customize/class-wp-customize-header-image-control.php:215
+msgid "Click &#8220;Add Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
+msgstr "Klik &#8220;Tambah Gambar Baru&#8221; untuk mengunggah berkas gambar dari komputer Anda. Tema Anda paling cocok dengan ukuran gambar yang sesuai dengan ukuran video &#8212; Anda bisa memangkasnya setelah selesai diunggah untuk menyesuaikan ukurannya."
 
 #. translators: 1: Month number (01, 02, etc.), 2: Month abbreviation.
 #: wp-includes/customize/class-wp-customize-date-time-control.php:234
@@ -10006,31 +10044,31 @@ msgctxt "Name for the Visual editor tab"
 msgid "Visual"
 msgstr "Visual"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1132
+#: wp-includes/class-wp-customize-nav-menus.php:1138
 msgid "Create New Menu"
 msgstr "Buat Menu Baru"
 
-#: wp-includes/class-wp-customize-nav-menus.php:848
+#: wp-includes/class-wp-customize-nav-menus.php:854
 msgid "New Menu"
 msgstr "Menu Baru"
 
 #. translators: URL to the Widgets panel of the Customizer.
-#: wp-includes/class-wp-customize-nav-menus.php:696
+#: wp-includes/class-wp-customize-nav-menus.php:702
 msgid "If your theme has widget areas, you can also add menus there. Visit the <a href=\"%s\">Widgets panel</a> and add a &#8220;Navigation Menu widget&#8221; to display a menu in a sidebar or footer."
 msgstr "Jika tema Anda mempunyai area widget, Anda bisa juga menambah menu di sana. Kunjungi <a href=\"%s\">panel Widget</a> dan tambahkan &#8220;widget Menu Navigasi&#8221; untuk menampilkan menu pada bilah sisi atau kaki."
 
-#: wp-includes/class-wp-customize-nav-menus.php:514
+#: wp-includes/class-wp-customize-nav-menus.php:520
 msgid "If your theme has multiple menus, giving them clear names will help you manage them."
 msgstr "Jika tema Anda memiliki banyak menu, pemberian nama yang jelas akan menolong Anda ketika menatanya."
 
 #. translators: %s: Number of menu locations.
-#: wp-includes/class-wp-customize-nav-menus.php:497
+#: wp-includes/class-wp-customize-nav-menus.php:503
 msgid "Your theme can display menus in %s location."
 msgid_plural "Your theme can display menus in %s locations."
 msgstr[0] "Tema Anda bisa menampilkan menu di %s lokasi."
 msgstr[1] "Tema Anda bisa menampilkan menu di %s lokasi."
 
-#: wp-includes/class-wp-customize-nav-menus.php:494
+#: wp-includes/class-wp-customize-nav-menus.php:500
 msgid "Your theme can display menus in one location."
 msgstr "Tema Anda bisa menampilkan menu di satu lokasi."
 
@@ -10168,6 +10206,10 @@ msgstr "Tampilkan Pengguna"
 msgid "This widget may have contained code that may work better in the &#8220;Custom HTML&#8221; widget. If you have not yet, how about trying that widget instead?"
 msgstr "Widget berikut mungkin mengandung kode yang akan bekerja lebih baik di widget &#8220;HTML Khusus&#8221;. Jika belum mencobanya, kenapa tidak mencoba widget tersebut?"
 
+#: wp-includes/widgets/class-wp-widget-text.php:560
+msgid "Hey there, looks like you just pasted HTML into the &#8220;Visual&#8221; tab of the Text widget. You may want to paste your code into the &#8220;Code&#8221; tab instead. Alternately, try out the new &#8220;Custom HTML&#8221; widget!"
+msgstr "Hai, sepertinya Anda baru saja menempelkan kode HTML ke dalam tab &#8220;Visual&#8221; dalam Widget teks. Anda mungkin ingin menempelnya pada tab &#8220;Kode&#8221; sebenarnya. Jika tidak, cobalah widget &#8220;HTML Khusus&#8221; yang baru!"
+
 #: wp-includes/widgets/class-wp-widget-text.php:559
 msgid "Did you just paste HTML?"
 msgstr "Apakah Anda baru saja menempelkan HTML?"
@@ -10252,6 +10294,10 @@ msgstr "Tambah Audio"
 #: wp-admin/includes/media.php:3332
 msgid "(no author)"
 msgstr "(tanpa penulis)"
+
+#: wp-includes/script-loader.php:1317 wp-admin/includes/file.php:638
+msgid "An error occurred. Please try again later."
+msgstr "Terjadi eror. Silakan coba lagi nanti."
 
 #. translators: %s: URL to Network Settings screen.
 #: wp-signup.php:965
@@ -10458,17 +10504,17 @@ msgstr "%1$s harus lebih besar atau sama dengan %2$d"
 msgid "%1$s must be greater than %2$d"
 msgstr "%1$s harus lebih besar dari %2$d"
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1612
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1618
 msgid "Limit result set to users with one or more specific slugs."
 msgstr "Batasi set hasil ke pengguna dengan satu atau lebih slug spesifik."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1203
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1207
 msgid "Limit result set to terms with one or more specific slugs."
 msgstr "Batasi set hasil ke istilah dengan satu atau lebih slug spesifik."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-collections-controller.php:85
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-revisions-controller.php:229
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:497
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:503
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:336
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:163
 msgid "The page number requested is larger than the number of pages available."
@@ -10661,7 +10707,7 @@ msgid "This address is used for admin purposes, like new user notification."
 msgstr "Alamat ini dipakai untuk keperluan administrasi, misalnya notifikasi pengguna baru."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:111
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1052
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1056
 msgid "Unique identifier for the term."
 msgstr "Pengidentifikasi unik untuk term."
 
@@ -10717,72 +10763,72 @@ msgstr "Batasi tanggapan untuk komentar yang diterbitkan sebelum tanggal tertent
 msgid "Limit response to comments published after a given ISO8601 compliant date."
 msgstr "Batasi tanggapan untuk komentar yang diterbitkan setelah tanggal tertentu sesuai ISO8601."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1538
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1544
 msgid "Avatar URLs for the user."
 msgstr "URL avatar untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1491
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1497
 msgid "Roles assigned to the user."
 msgstr "Peran yang ditetapkan untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1468
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1474
 msgid "The nickname for the user."
 msgstr "Panggilan untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1462
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1468
 msgid "Locale for the user."
 msgstr "Lokal untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1455
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1461
 msgid "Author URL of the user."
 msgstr "URL penulis untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1450
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1456
 msgid "Description of the user."
 msgstr "Deskripsi pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1444
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1450
 msgid "URL of the user."
 msgstr "URL pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1429
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1435
 msgid "Last name for the user."
 msgstr "Nama belakang pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1421
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1427
 msgid "First name for the user."
 msgstr "Nama depan pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1413
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1419
 msgid "Display name for the user."
 msgstr "Nama tampilan untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1404
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1410
 msgid "Login name for the user."
 msgstr "Nama login untuk pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:916
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:963
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:922
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:969
 msgid "The user cannot be deleted."
 msgstr "Pengguna tidak dapat dihapus."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:626
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:632
 msgid "Error creating new user."
 msgstr "Terjadi masalah ketika membuat pengguna baru."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1106
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1110
 msgid "The parent term ID."
 msgstr "ID induk istilah."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1076
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1080
 msgid "HTML title for the term."
 msgstr "Judul HTML untuk istilah."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1069
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1073
 msgid "URL of the term."
 msgstr "URL istilah."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:793
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:797
 msgid "The term cannot be deleted."
 msgstr "Istilah tidak dapat dihapus."
 
@@ -10794,12 +10840,12 @@ msgstr "Maaf, Anda tidak diizinkan untuk melihat tema."
 #: wp-includes/class-wp-xmlrpc-server.php:2245
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:207
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:301
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:528
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:675
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:532
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:679
 msgid "Cannot set parent term, taxonomy is not hierarchical."
 msgstr "Tidak dapat menetapkan induk istilah, taksonomi tidak hirarkis."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:420
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:424
 msgid "Term does not exist."
 msgstr "Istilah tidak ada."
 
@@ -10889,12 +10935,12 @@ msgstr "Masalah RSS:"
 msgid "Cannot create a comment with that type."
 msgstr "Tidak dapat membuat komentar menggunakan tipe ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:789
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:795
 msgid "Invalid slug."
 msgstr "Slug tidak sah."
 
 #: wp-includes/rest-api.php:2279
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:773
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:779
 #: wp-includes/user.php:4706 wp-admin/network/site-new.php:100
 msgid "Invalid email address."
 msgstr "Alamat email tidak sah."
@@ -10979,8 +11025,8 @@ msgstr "Kalender"
 msgid "Sorry, you are not allowed to change the comment type."
 msgstr "Maaf, Anda tidak diperbolehkan untuk mengganti tipe komentar."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1277
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1291
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1283
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1297
 #: wp-admin/includes/ms.php:1186 wp-admin/includes/user.php:62
 #: wp-admin/users.php:131 wp-admin/network/site-users.php:146
 msgid "Sorry, you are not allowed to give users that role."
@@ -11080,14 +11126,14 @@ msgstr "Tentang Situs Ini"
 msgid "Sorry, you are not allowed to edit the %s custom field."
 msgstr "Maaf, Anda tak diizinkan mengedit ruas kustom %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:711
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:914
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:717
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:920
 msgid "Sorry, you are not allowed to assign the provided terms."
 msgstr "Maaf, Anda tak diizinkan menetapkan istilah yang tersedia."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1402
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:695
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:906
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:701
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:912
 msgid "Sorry, you are not allowed to make posts sticky."
 msgstr "Maaf, Anda tidak diizinkan membuat pos tertempel."
 
@@ -11214,16 +11260,16 @@ msgid "Find Us"
 msgstr "Temukan Kami"
 
 #. translators: %s: The '\' character.
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1370
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1376
 msgid "Passwords cannot contain the \"%s\" character."
 msgstr "Kata sandi tidak dapat mengandung karakter \"%s\"."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1360
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1366
 msgid "Passwords cannot be empty."
 msgstr "Kata sandi tak boleh kosong."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:188
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:601
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:607
 msgid "Invalid user parameter(s)."
 msgstr "Parameter pengguna tak sah."
 
@@ -11282,12 +11328,12 @@ msgid "Please enter a valid YouTube URL."
 msgstr "Silakan masukkan URL YouTube yang sah."
 
 #. translators: %s: force=true
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:936
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:942
 msgid "Users do not support trashing. Set '%s' to delete."
 msgstr "Pengguna tidak mendukung pembuangan. Gunakan '%s' untuk hapus."
 
 #. translators: %s: force=true
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:779
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:783
 msgid "Terms do not support trashing. Set '%s' to delete."
 msgstr "Istilah tidak mendukung pembuangan. Gunakan '%s' untuk hapus."
 
@@ -11297,7 +11343,7 @@ msgid "Revisions do not support trashing. Set '%s' to delete."
 msgstr "Revisi tidak mendukung pembuangan. Gunakan '%s' untuk hapus."
 
 #. translators: %s: force=true
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1138
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1144
 msgid "The post does not support trashing. Set '%s' to delete."
 msgstr "Post tidak mendukung pembuangan. Gunakan '%s' untuk hapus."
 
@@ -11314,7 +11360,7 @@ msgstr "Atau, masukkan URL YouTube:"
 msgid "Invalid JSON body passed."
 msgstr "Body JSON tak sah terkirim."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3058
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3064
 msgid "Limit result set to posts assigned one or more statuses."
 msgstr "Batasi hasil ke pos-pos yang memiliki status satu atau lebih."
 
@@ -11327,7 +11373,7 @@ msgstr "Ruas komentar melampau panjang maksimum yang diizinkan."
 msgid "Taxonomies associated with post type."
 msgstr "Taksonomi yang terkait dengan tipe pos ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3049
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3055
 msgid "Limit result set to posts with one or more specific slugs."
 msgstr "Limit result set to posts with one or more specific slugs."
 
@@ -11335,7 +11381,7 @@ msgstr "Limit result set to posts with one or more specific slugs."
 msgid "Comment is required."
 msgstr "Komentar wajib diisi."
 
-#: wp-includes/class-wp-customize-nav-menus.php:954
+#: wp-includes/class-wp-customize-nav-menus.php:960
 msgid "Empty title."
 msgstr "Judul kosong."
 
@@ -11388,7 +11434,7 @@ msgid "%1$s is not of type %2$s."
 msgstr "%1$s bukan dari tipe %2$s."
 
 #. translators: 1: Parameter, 2: List of valid values.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1624
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1630
 msgid "%1$s is not one of %2$s."
 msgstr "%1$s bukan salah satu dari %2$s."
 
@@ -11400,48 +11446,48 @@ msgstr "Ruas-ruas meta."
 msgid "Could not delete meta value from database."
 msgstr "Tidak dapat menghapus nilai meta dari basis data."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1620
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1626
 msgid "Limit result set to users matching at least one specific role provided. Accepts csv list or single role."
 msgstr "Batasi hasil diatur ke pengguna yang setidaknya satu peran spesifik yang telah disediakan. Terima daftar csv atau peran tunggal."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1514
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1520
 msgid "Any extra capabilities assigned to the user."
 msgstr "Kapabilitas tambahan yang diberikan kepada pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1508
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1514
 msgid "All capabilities assigned to the user."
 msgstr "Seluruh kapabilitas yang diberikan kepada pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1499
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1505
 msgid "Password for the user (never included)."
 msgstr "Kata sandi untuk pengguna (tak pernah disertakan)."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1484
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1490
 msgid "Registration date for the user."
 msgstr "Tanggal pendaftaran pengguna."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1437
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1443
 msgid "The email address for the user."
 msgstr "Alamat email pengguna."
 
 #. translators: %s: Role key.
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1259
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1265
 msgid "The role %s does not exist."
 msgstr "Peran %s tidak ada."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:945
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:951
 msgid "Invalid user ID for reassignment."
 msgstr "ID pengguna yang hendak dialihkan tidak sah."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:895
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:901
 msgid "Sorry, you are not allowed to delete this user."
 msgstr "Maaf, Anda tak diizinkan menghapus pengguna ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:781
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:787
 msgid "Username is not editable."
 msgstr "Nama pengguna tak bisa diedit."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:722
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:728
 msgid "Sorry, you are not allowed to edit roles of this user."
 msgstr "Maaf, Anda tak diizinkan mengubah peran pengguna ini."
 
@@ -11450,28 +11496,28 @@ msgstr "Maaf, Anda tak diizinkan mengubah peran pengguna ini."
 msgid "Sorry, you are not allowed to delete this revision."
 msgstr "Maaf, Anda tidak diizinkan menghapus revisi ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:578
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:584
 msgid "Cannot create existing user."
 msgstr "Tak bisa membuat pengguna yang sudah ada."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:702
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:533
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:539
 msgid "You are not currently logged in."
 msgstr "Saat ini Anda belum log masuk."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1197
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1201
 msgid "Limit result set to terms assigned to a specific post."
 msgstr "Batasi hasil untuk istilah-istilah yang digunakan pada pos tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1191
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1195
 msgid "Limit result set to terms assigned to a specific parent."
 msgstr "Batasi set hasil untuk terma-terma dengan induk tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1184
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1188
 msgid "Whether to hide terms not assigned to any posts."
 msgstr "Apakah akan menyembunyikan istilah-istilah yang tak digunakan pada pos manapun."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1168
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1172
 msgid "Sort collection by term attribute."
 msgstr "Urutkan koleksi berdasarkan atribut istilah."
 
@@ -11483,24 +11529,24 @@ msgstr "Urutkan koleksi berdasarkan atribut istilah."
 msgid "The ID for the parent of the revision."
 msgstr "ID induk revisi."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1093
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1097
 msgid "Type attribution for the term."
 msgstr "Jenis atribusi untuk istilah tersebut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1085
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1089
 msgid "An alphanumeric identifier for the term unique to its type."
 msgstr "Pengenal alfanumerik untuk istilah yang unik untuk tipe tersebut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1064
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1068
 msgid "HTML description of the term."
 msgstr "Deskripsi HTML dari istilah tersebut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1058
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1062
 msgid "Number of published posts for the term."
 msgstr "Jumlah pos yang telah terbit untuk terma tersebut."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:83
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1398
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1404
 msgid "Unique identifier for the user."
 msgstr "Pengidentifikasi unik untuk pengguna."
 
@@ -11533,113 +11579,113 @@ msgstr "Properti %s memiliki nilai tersimpan yang tak sah, dan tidak bisa diubah
 msgid "Invalid revision ID."
 msgstr "ID revisi tidak sah."
 
-#: wp-includes/class-wp-customize-nav-menus.php:957
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3145
+#: wp-includes/class-wp-customize-nav-menus.php:963
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3151
 msgid "Status is forbidden."
 msgstr "Status ini terlarang."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3071
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3077
 msgid "Limit result set to items that are sticky."
 msgstr "Batasi hasil hanya untuk item-item yang melekat."
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3308
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3314
 msgid "Limit result set to items except those with specific terms assigned in the %s taxonomy."
 msgstr "Batasi set hasil hanya untuk item yang memiliki istilah tertentu yang diterapkan di dalam taksonomi %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3029
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3035
 msgid "Limit result set to all items except those of a particular parent ID."
 msgstr "Batasi set hasil hanya untuk semua item selain item-item dengan ID induk tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3021
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:3027
 msgid "Limit result set to items with particular parent IDs."
 msgstr "Batasi hasil hanya untuk yang memiliki ID induk tertentu."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1624
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:337
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2984
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2990
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:840
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1152
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1584
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1156
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1590
 msgid "Offset the result set by a specific number of items."
 msgstr "Imbangi hasil dengan jumlah item tertentu."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:954
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2972
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2978
 msgid "Limit result set to posts with a specific menu_order value."
 msgstr "Batasi hasil untuk pos-pos dengan nilai menu_order tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2931
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2937
 msgid "Ensure result set excludes posts assigned to specific authors."
 msgstr "Pastikan hasil mengecualikan pos-pos dengan penulis tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2923
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2929
 msgid "Limit result set to posts assigned to specific authors."
 msgstr "Batasi hasil untuk pos-pos dengan penulis tertentu."
 
 #. translators: %s: Taxonomy name.
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2714
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2720
 msgid "The terms assigned to the post in the %s taxonomy."
 msgstr "Term diberikan untuk pos dalam taksonomi %s."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2684
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2690
 msgid "The theme file to use to display the post."
 msgstr "Berkas tema yang dipakai untuk menampilkan pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2428
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2434
 msgid "A password to protect access to the content and excerpt."
 msgstr "Kata sandi untuk melindungi akses atas konten dan ringkasan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2677
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2683
 msgid "Whether or not the post should be treated as sticky."
 msgstr "Apakah pos harus diperlakukan sebagai pos lekat atau tidak."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2661
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2667
 msgid "The format for the post."
 msgstr "Format pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2641
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2647
 msgid "Whether or not the post can be pinged."
 msgstr "Apakah pos dapat ping atau tidak."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2635
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2641
 msgid "Whether or not comments are open on the post."
 msgstr "Apakah komentar dibuka di pos atau tidak."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2627
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2633
 msgid "The ID of the featured media for the post."
 msgstr "ID media unggulan untuk pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2616
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2622
 msgid "Whether the excerpt is protected with a password."
 msgstr "Apakah ringkasan tersebut dilindungi dengan kata sandi."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2610
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2616
 msgid "HTML excerpt for the post, transformed for display."
 msgstr "Ringkasan HTML untuk pos, diubah menjadi tampilan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2605
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2611
 msgid "Excerpt for the post, as it exists in the database."
 msgstr "Ringkasan untuk pos, sesuai yang ada di basis data."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2596
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2602
 msgid "The excerpt for the post."
 msgstr "Ringkasan untuk pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2588
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2594
 msgid "The ID for the author of the post."
 msgstr "ID penulis pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2577
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2583
 msgid "Whether the content is protected with a password."
 msgstr "Apakah konten dilindungi dengan kata sandi."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-global-styles-controller.php:493
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2540
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2546
 msgid "HTML title for the post, transformed for display."
 msgstr "Judul HTML pos, diubah menjadi tampilan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2535
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2541
 msgid "Title for the post, as it exists in the database."
 msgstr "Judul untuk pos, sebagaimana tersimpan dalam basis data."
 
@@ -11648,7 +11694,7 @@ msgstr "Judul untuk pos, sebagaimana tersimpan dalam basis data."
 msgid "The title for the object."
 msgstr "Judul untuk objek tersebut."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2413
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2419
 msgid "A named status for the post."
 msgstr "Status bernama untuk pos."
 
@@ -11664,7 +11710,7 @@ msgstr "Tanggal saat revisi terakhir dimodifikasi, dalam GMT."
 msgid "The date the revision was last modified, in the site's timezone."
 msgstr "Tanggal saat revisi terakhir dimodifikasi, dalam zona waktu situs."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2370
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2376
 msgid "GUID for the post, transformed for display."
 msgstr "GUID pos, diubah menjadi tampilan."
 
@@ -11672,7 +11718,7 @@ msgstr "GUID pos, diubah menjadi tampilan."
 msgid "GUID for the revision, as it exists in the database."
 msgstr "GUID untuk revisi, sesuai yang ada di basis data."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2358
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2364
 msgid "The globally unique identifier for the post."
 msgstr "Pengidentifikasi unik global untuk pos."
 
@@ -11684,30 +11730,30 @@ msgstr "Tanggal saat revisi dipublikasikan, dalam GMT."
 msgid "The date the revision was published, in the site's timezone."
 msgstr "Tanggal saat revisi dipublikasikan, dalam zona waktu situs."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1577
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1583
 msgid "Invalid featured media ID."
 msgstr "ID media unggulan tidak sah."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-autosaves-controller.php:273
 #: wp-includes/rest-api/endpoints/class-wp-rest-font-faces-controller.php:766
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1439
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1445
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:153
 msgid "Invalid post parent ID."
 msgstr "ID induk pos tidak sah."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1423
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1429
 msgid "A password protected post can not be set to sticky."
 msgstr "Pos yang terlindungi password tak bisa ditempelkan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1412
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1418
 msgid "A sticky post can not be password protected."
 msgstr "Pos yang ditempelkan tak bisa dilindungi kata sandi."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1404
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1410
 msgid "A post can not be sticky and have a password."
 msgstr "Sebuah pos tak bisa ditempelkan dan dilindungi kata sandi secara bersamaan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1147
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1153
 msgid "The post has already been deleted."
 msgstr "Pos telah dihapus."
 
@@ -11722,16 +11768,16 @@ msgid "Sorry, you are not allowed to manage this plugin."
 msgstr "Maaf, Anda tidak diizinkan untuk mengelola plugin ini."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:129
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:677
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:731
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:683
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:737
 msgid "Cannot create existing post."
 msgstr "Tidak dapat membuat pos yang telah ada."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:558
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:564
 msgid "Sorry, you are not allowed to create new users."
 msgstr "Maaf, Anda tak diizinkan membuat pengguna baru."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:585
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:591
 msgid "Incorrect post password."
 msgstr "Kata sandi pos salah."
 
@@ -11765,7 +11811,7 @@ msgstr "Semua kapabilitas yang digunakan oleh taksonomi tersebut."
 msgid "Sorry, you are not allowed to manage post statuses."
 msgstr "Maaf, Anda tidak diizinkan mengelola status pos."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1476
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1482
 msgid "An alphanumeric identifier for the user."
 msgstr "Identifikasi alfanumerik untuk pengguna tersebut."
 
@@ -11849,32 +11895,32 @@ msgstr "Sortir koleksi berdasarkan atribut objek."
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1629
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:959
 #: wp-includes/rest-api/endpoints/class-wp-rest-pattern-directory-controller.php:342
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2989
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2995
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:845
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1158
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1590
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1162
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1596
 msgid "Order sort attribute ascending or descending."
 msgstr "Urutkan atribut penyortiran naik atau menurun."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1615
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2962
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2968
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:831
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:348
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1142
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1575
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1146
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1581
 msgid "Limit result set to specific IDs."
 msgstr "Batasi kumpulan hasil untuk ID tertentu."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1606
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2953
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2959
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:822
 #: wp-includes/rest-api/endpoints/class-wp-rest-search-controller.php:339
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1133
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1566
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:1137
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1572
 msgid "Ensure result set excludes specific IDs."
 msgstr "Pastikan kumpulan hasil mengecualikan ID tertentu."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2941
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2947
 msgid "Limit response to posts published before a given ISO8601 compliant date."
 msgstr "Batasi tanggapan untuk pos yang diterbitkan sebelum tanggal tertentu sesuai ISO8601."
 
@@ -11890,7 +11936,7 @@ msgstr "Pastikan kumpulan hasil mengecualikan komentar dengan ID pengguna terten
 msgid "Limit result set to comments assigned to specific user IDs. Requires authorization."
 msgstr "Batasi kumpulan hasil untuk komentar dengan ID pengguna tertentu. Membutuhkan otorisasi."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2910
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2916
 msgid "Limit response to posts published after a given ISO8601 compliant date."
 msgstr "Batasi tanggapan untuk pos-pos yang diterbitkan setelah tanggal tertentu sesuai ISO8601."
 
@@ -11900,7 +11946,7 @@ msgstr "URL avatar untuk penulis komentar."
 
 #. translators: %d: Avatar image size in pixels.
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:1535
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1530
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1536
 msgid "Avatar URL with image size of %d pixels."
 msgstr "URL Avatar dengan ukuran gambar %d piksel."
 
@@ -11912,7 +11958,7 @@ msgstr "Status komentar."
 msgid "The ID of the associated post object."
 msgstr "ID objek pos terkait."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2464
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2470
 msgid "The ID for the parent of the post."
 msgstr "ID induk pos."
 
@@ -11920,19 +11966,19 @@ msgstr "ID induk pos."
 msgid "URL to the object."
 msgstr "URL menuju ke objek."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2352
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2358
 msgid "The date the post was published, as GMT."
 msgstr "Tanggal saat pos dipublikasikan, dalam GMT."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2565
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2571
 msgid "HTML content for the post, transformed for display."
 msgstr "Konten HTML untuk pos, diubah menjadi tampilan."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2560
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2566
 msgid "Content for the post, as it exists in the database."
 msgstr "Konten pos, sesuai yang ada di basis data."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2551
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:2557
 msgid "The content for the post."
 msgstr "Konten untuk pos."
 
@@ -12296,13 +12342,13 @@ msgid "Sorry, you are not allowed to assign this term."
 msgstr "Maaf, Anda tak diizinkan menerapkan istilah ini."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2342
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:750
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:754
 msgid "Sorry, you are not allowed to delete this term."
 msgstr "Maaf, Anda tak diizinkan menghapus istilah ini."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2232
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:458
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:649
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:462
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:653
 msgid "Sorry, you are not allowed to edit this term."
 msgstr "Maaf, Anda tak diziinkan menyunting istilah ini."
 
@@ -12321,11 +12367,11 @@ msgid "Number of widgets found: %d"
 msgstr "Jumlah widget yang ditemukan: %d"
 
 #. translators: 1: Post type name, 2: Error message.
-#: wp-includes/class-wp-customize-nav-menus.php:1048
+#: wp-includes/class-wp-customize-nav-menus.php:1054
 msgid "%1$s could not be created: %2$s"
 msgstr "%1$s tidak bisa disimpan: %2$s"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1043
+#: wp-includes/class-wp-customize-nav-menus.php:1049
 msgid "Post"
 msgstr "Pos"
 
@@ -12594,7 +12640,8 @@ msgid "Sorry, you are not allowed to edit your profile."
 msgstr "Maaf, Anda tidak diizinkan menyunting profil Anda."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2722
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:741
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:489
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:747
 #: wp-admin/user-edit.php:104 wp-admin/user-edit.php:136
 #: wp-admin/user-edit.php:195 wp-admin/users.php:114 wp-admin/users.php:143
 #: wp-admin/users.php:249
@@ -12637,8 +12684,8 @@ msgstr "Maaf, Anda tak dizinkan menghapus laman ini."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1850
 #: wp-includes/class-wp-xmlrpc-server.php:5307
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1060
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1114
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1066
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1120
 msgid "Sorry, you are not allowed to delete this post."
 msgstr "Maaf, Anda tak diizinkan menghapus pos ini."
 
@@ -12718,9 +12765,7 @@ msgid "Sorry, you are not allowed to add a category."
 msgstr "Maaf, Anda tak dizinkan menambahkan kategori."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2785
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:223
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:485
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:491
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:497
 #: wp-admin/users.php:16
 msgid "Sorry, you are not allowed to list users."
 msgstr "Maaf, Anda tak dizinkan melihat daftar pengguna."
@@ -12999,7 +13044,7 @@ msgid "(Current: %s)"
 msgstr "(Saat ini: %s)"
 
 #. translators: %s: Menu location.
-#: wp-includes/class-wp-customize-nav-menus.php:510
+#: wp-includes/class-wp-customize-nav-menus.php:516
 msgctxt "menu"
 msgid "(Currently set to: %s)"
 msgstr "(Saat ini diatur ke: %s)"
@@ -13362,8 +13407,8 @@ msgstr "Arsip Laman"
 msgid "Post Archives"
 msgstr "Arsip Pos"
 
-#: wp-includes/class-wp-customize-nav-menus.php:198
-#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:319
+#: wp-includes/class-wp-customize-nav-menus.php:200
+#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:337
 #: wp-includes/nav-menu.php:922
 msgid "Post Type Archive"
 msgstr "Arsip Tipe Pos"
@@ -13373,7 +13418,7 @@ msgid "Site names can only contain lowercase letters (a-z) and numbers."
 msgstr "Nama situs hanya dapat meliputi huruf kecil (a-z) dan angka."
 
 #: wp-includes/ms-functions.php:495 wp-includes/ms-functions.php:502
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1329
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:1335
 #: wp-includes/user.php:2259
 msgid "Sorry, that username is not allowed."
 msgstr "Maaf, nama pengguna tersebut tidak diperbolehkan."
@@ -13606,7 +13651,7 @@ msgid "The post type %1$s is not registered, so it may not be reliable to check 
 msgstr "Tipe pos %1$s tidak terdaftar, sehingga tidak dapat memeriksa kapabilitas \"%2$s\" pada tipe pos tersebut."
 
 #. translators: Hidden accessibility text.
-#: wp-includes/class-wp-customize-nav-menus.php:1181
+#: wp-includes/class-wp-customize-nav-menus.php:1187
 #: wp-includes/class-wp-customize-widgets.php:944
 msgid "Clear Results"
 msgstr "Bersihkan Hasil Pencarian"
@@ -13631,7 +13676,7 @@ msgstr "Sembunyikan sandi"
 msgid "Show password"
 msgstr "Tampilkan sandi"
 
-#: wp-includes/class-wp-customize-nav-menus.php:513 wp-admin/nav-menus.php:1098
+#: wp-includes/class-wp-customize-nav-menus.php:519 wp-admin/nav-menus.php:1098
 msgid "Menu Name"
 msgstr "Nama Menu"
 
@@ -13643,7 +13688,7 @@ msgstr "Pratinjau sebagai ikon aplikasi"
 msgid "Preview as a browser icon"
 msgstr "Pratinjau sebagai ikon peramban"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1229
+#: wp-includes/class-wp-customize-nav-menus.php:1235
 msgid "No items"
 msgstr "Tidak ada item"
 
@@ -13700,7 +13745,7 @@ msgstr "Identitas Situs"
 
 #. translators: Hidden accessibility text. 1: Title of a menu item, 2: Type of
 #. a menu item.
-#: wp-includes/class-wp-customize-nav-menus.php:1082
+#: wp-includes/class-wp-customize-nav-menus.php:1088
 msgid "Add to menu: %1$s (%2$s)"
 msgstr "Tambahkan ke menu: %1$s (%2$s)"
 
@@ -13743,26 +13788,26 @@ msgstr "Meninjau tema"
 msgid "Active theme"
 msgstr "Tema yang aktif"
 
-#: wp-includes/class-wp-customize-nav-menus.php:663
+#: wp-includes/class-wp-customize-nav-menus.php:669
 msgid "Menus can be displayed in locations defined by your theme."
 msgstr "Menu dapat ditampilkan di lokasi yang ditentukan oleh tema Anda."
 
 #. translators: %s: URL to the Widgets panel of the Customizer.
-#: wp-includes/class-wp-customize-nav-menus.php:659
+#: wp-includes/class-wp-customize-nav-menus.php:665
 msgid "Menus can be displayed in locations defined by your theme or in <a href=\"%s\">widget areas</a> by adding a &#8220;Navigation Menu&#8221; widget."
 msgstr "Menu-menu bisa ditampilkan di lokasi yang ditentukan oleh tema atau di <a href=\"%s\">area widget</a> Anda dengan menambahkan widget &#8220;Menu Navigasi&#8221;."
 
-#: wp-includes/class-wp-customize-nav-menus.php:535
+#: wp-includes/class-wp-customize-nav-menus.php:541
 #: wp-includes/class-wp-customize-widgets.php:815
 msgid "Reorder mode closed"
 msgstr "Mode pengaturan urutan ditutup"
 
-#: wp-includes/class-wp-customize-nav-menus.php:534
+#: wp-includes/class-wp-customize-nav-menus.php:540
 #: wp-includes/class-wp-customize-widgets.php:814
 msgid "Reorder mode enabled"
 msgstr "Mode penyusunan ulang diaktifkan"
 
-#: wp-includes/class-wp-customize-nav-menus.php:506
+#: wp-includes/class-wp-customize-nav-menus.php:512
 #: wp-includes/customize/class-wp-customize-nav-menu-setting.php:440
 msgctxt "Missing menu name."
 msgid "(unnamed)"
@@ -13773,11 +13818,11 @@ msgstr "(tanpa nama)"
 msgid "When in reorder mode, additional controls to reorder menu items will be available in the items list above."
 msgstr "Ketika dalam mode menyusun ulang, kontrol tambahan untuk menyusun ulang item menu akan tersedia dalam daftar item di atas."
 
-#: wp-includes/class-wp-customize-nav-menus.php:537
+#: wp-includes/class-wp-customize-nav-menus.php:543
 msgid "Close reorder mode"
 msgstr "Tutup mode penyusunan ulang"
 
-#: wp-includes/class-wp-customize-nav-menus.php:536
+#: wp-includes/class-wp-customize-nav-menus.php:542
 #: wp-includes/customize/class-wp-customize-nav-menu-control.php:55
 msgid "Reorder menu items"
 msgstr "Susun ulang item menu"
@@ -13980,19 +14025,19 @@ msgstr "Kustomisasi"
 msgid "Menu Options"
 msgstr "Opsi Menu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1280
+#: wp-includes/class-wp-customize-nav-menus.php:1286
 #: wp-admin/includes/nav-menu.php:369 wp-admin/includes/nav-menu.php:817
 #: wp-admin/includes/nav-menu.php:1112
 msgid "Add to Menu"
 msgstr "Tambahkan ke Menu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1262
+#: wp-includes/class-wp-customize-nav-menus.php:1268
 #: wp-admin/includes/nav-menu.php:174
 msgid "Custom Links"
 msgstr "Taut Tersuai"
 
 #. translators: Hidden accessibility text.
-#: wp-includes/class-wp-customize-nav-menus.php:1173
+#: wp-includes/class-wp-customize-nav-menus.php:1179
 #: wp-includes/class-wp-customize-widgets.php:950
 #: wp-includes/customize/class-wp-customize-themes-section.php:134
 #: wp-includes/customize/class-wp-customize-themes-section.php:148
@@ -14001,138 +14046,138 @@ msgstr "Taut Tersuai"
 msgid "The search results will be updated as you type."
 msgstr "Hasil pencarian akan diperbarui saat Anda mengetik."
 
-#: wp-includes/class-wp-customize-nav-menus.php:1168
+#: wp-includes/class-wp-customize-nav-menus.php:1174
 msgid "Search Menu Items"
 msgstr "Item-item Menu Pencarian"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1163
+#: wp-includes/class-wp-customize-nav-menus.php:1169
 msgid "Add Menu Items"
 msgstr "Tambahkan Item Menu"
 
 #. translators: &#9656; is the unicode right-pointing triangle. %s: Section
 #. title in the Customizer.
-#: wp-includes/class-wp-customize-nav-menus.php:524
-#: wp-includes/class-wp-customize-nav-menus.php:1160
+#: wp-includes/class-wp-customize-nav-menus.php:530
+#: wp-includes/class-wp-customize-nav-menus.php:1166
 #: wp-includes/class-wp-customize-section.php:246
 #: wp-includes/class-wp-customize-widgets.php:926
 msgid "Customizing &#9656; %s"
 msgstr "Menyesuaikan &#9656; %s"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1099
+#: wp-includes/class-wp-customize-nav-menus.php:1105
 msgid "Move one level down"
 msgstr "Turunkan satu tingkat"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1098
+#: wp-includes/class-wp-customize-nav-menus.php:1104
 msgid "Move one level up"
 msgstr "Naikkan satu tingkat"
 
-#: wp-includes/class-wp-customize-nav-menus.php:511
+#: wp-includes/class-wp-customize-nav-menus.php:517
 msgid "Menu Locations"
 msgstr "Lokasi Menu"
 
 #. translators: %s: Number of menu locations.
-#: wp-includes/class-wp-customize-nav-menus.php:691
+#: wp-includes/class-wp-customize-nav-menus.php:697
 msgid "Your theme can display menus in %s location. Select which menu you would like to use."
 msgid_plural "Your theme can display menus in %s locations. Select which menu appears in each location."
 msgstr[0] "Tema Anda bisa menampilkan menu di %s lokasi. Pilih menu yang ingin Anda gunakan."
 msgstr[1] "Tema Anda bisa menampilkan menu di %s lokasi. Pilih menu yang ingin Anda tampilkan di masing-masing lokasi."
 
-#: wp-includes/class-wp-customize-nav-menus.php:655
+#: wp-includes/class-wp-customize-nav-menus.php:661
 msgid "This panel is used for managing navigation menus for content you have already published on your site. You can create menus and add items for existing content such as pages, posts, categories, tags, formats, or custom links."
 msgstr "Panel ini digunakan untuk mengelola menu navigasi untuk konten yang sudah Anda terbitkan. Anda bisa membuat menu-menu dan menambahkan item-item untuk konten yang sudah ada, seperti laman, pos, kategori, tag, format, atau tautan tersuai."
 
 #. translators: %s: Previous item name.
-#: wp-includes/class-wp-customize-nav-menus.php:564 wp-admin/nav-menus.php:582
+#: wp-includes/class-wp-customize-nav-menus.php:570 wp-admin/nav-menus.php:582
 msgid "Out from under %s"
 msgstr "Keluarkan dari bawah %s"
 
 #. translators: %s: Previous item name.
-#: wp-includes/class-wp-customize-nav-menus.php:562 wp-admin/nav-menus.php:580
+#: wp-includes/class-wp-customize-nav-menus.php:568 wp-admin/nav-menus.php:580
 msgid "Under %s"
 msgstr "Di bawah %s"
 
 #. translators: %s: Previous item name.
-#: wp-includes/class-wp-customize-nav-menus.php:560 wp-admin/nav-menus.php:578
+#: wp-includes/class-wp-customize-nav-menus.php:566 wp-admin/nav-menus.php:578
 msgid "Move out from under %s"
 msgstr "Pindahkan dari bawah %s"
 
 #. translators: %s: Previous item name.
-#: wp-includes/class-wp-customize-nav-menus.php:558 wp-admin/nav-menus.php:576
+#: wp-includes/class-wp-customize-nav-menus.php:564 wp-admin/nav-menus.php:576
 msgid "Move under %s"
 msgstr "Pindahkan ke bawah %s"
 
-#: wp-includes/class-wp-customize-nav-menus.php:556 wp-admin/nav-menus.php:574
+#: wp-includes/class-wp-customize-nav-menus.php:562 wp-admin/nav-menus.php:574
 msgid "Move to the top"
 msgstr "Naikkan ke paling atas"
 
-#: wp-includes/class-wp-customize-nav-menus.php:555 wp-admin/nav-menus.php:573
+#: wp-includes/class-wp-customize-nav-menus.php:561 wp-admin/nav-menus.php:573
 msgid "Move down one"
 msgstr "Turunkan satu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:554 wp-admin/nav-menus.php:572
+#: wp-includes/class-wp-customize-nav-menus.php:560 wp-admin/nav-menus.php:572
 msgid "Move up one"
 msgstr "Naikkan satu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:533
+#: wp-includes/class-wp-customize-nav-menus.php:539
 msgid "Loading more results... please wait."
 msgstr "Memuat lebih banyak hasil... mohon tunggu."
 
 #. translators: %d: Number of additional menu items found.
-#: wp-includes/class-wp-customize-nav-menus.php:532
+#: wp-includes/class-wp-customize-nav-menus.php:538
 msgid "Additional items found: %d"
 msgstr "Item tambahan yang ditemukan: %d"
 
 #. translators: %d: Number of menu items found.
-#: wp-includes/class-wp-customize-nav-menus.php:530
+#: wp-includes/class-wp-customize-nav-menus.php:536
 msgid "Number of items found: %d"
 msgstr "Jumlah item yang ditemukan: %d"
 
 #. translators: %s: Title of a menu item in draft status.
-#: wp-includes/class-wp-customize-nav-menus.php:528
+#: wp-includes/class-wp-customize-nav-menus.php:534
 #: wp-admin/includes/class-walker-nav-menu-edit.php:113
 msgid "%s (Pending)"
 msgstr "%s (Menunggu)"
 
 #. translators: %s: Title of an invalid menu item.
-#: wp-includes/class-wp-customize-nav-menus.php:526
+#: wp-includes/class-wp-customize-nav-menus.php:532
 #: wp-admin/includes/class-walker-nav-menu-edit.php:109
 msgid "%s (Invalid)"
 msgstr "%s (Tidak sah)"
 
-#: wp-includes/class-wp-customize-nav-menus.php:522 wp-admin/nav-menus.php:599
+#: wp-includes/class-wp-customize-nav-menus.php:528 wp-admin/nav-menus.php:599
 msgid "Menu item is now a sub-item"
 msgstr "Item menu menjadi sub-item"
 
-#: wp-includes/class-wp-customize-nav-menus.php:521 wp-admin/nav-menus.php:598
+#: wp-includes/class-wp-customize-nav-menus.php:527 wp-admin/nav-menus.php:598
 msgid "Menu item moved out of submenu"
 msgstr "Item menu dikeluarkan dari submenu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:520 wp-admin/nav-menus.php:596
+#: wp-includes/class-wp-customize-nav-menus.php:526 wp-admin/nav-menus.php:596
 msgid "Menu item moved down"
 msgstr "Item menu digeser ke bawah"
 
-#: wp-includes/class-wp-customize-nav-menus.php:519 wp-admin/nav-menus.php:595
+#: wp-includes/class-wp-customize-nav-menus.php:525 wp-admin/nav-menus.php:595
 msgid "Menu item moved up"
 msgstr "Item menu dinaikkan"
 
-#: wp-includes/class-wp-customize-nav-menus.php:518
+#: wp-includes/class-wp-customize-nav-menus.php:524
 msgid "Menu deleted"
 msgstr "Menu terhapus"
 
-#: wp-includes/class-wp-customize-nav-menus.php:517
+#: wp-includes/class-wp-customize-nav-menus.php:523
 msgid "Menu created"
 msgstr "Menu berhasil dibuat"
 
-#: wp-includes/class-wp-customize-nav-menus.php:516
+#: wp-includes/class-wp-customize-nav-menus.php:522
 msgid "Menu item deleted"
 msgstr "Item menu dihapus"
 
-#: wp-includes/class-wp-customize-nav-menus.php:515 wp-admin/nav-menus.php:593
+#: wp-includes/class-wp-customize-nav-menus.php:521 wp-admin/nav-menus.php:593
 msgid "Menu item added"
 msgstr "Item menu ditambahkan"
 
 #: wp-includes/class-wp-customize-nav-menus.php:167
-#: wp-includes/class-wp-customize-nav-menus.php:451
+#: wp-includes/class-wp-customize-nav-menus.php:457
 #: wp-admin/includes/nav-menu.php:455
 msgctxt "nav menu home label"
 msgid "Home"
@@ -14186,12 +14231,12 @@ msgstr "Label Navigasi"
 msgid "Automatically add new top-level pages to this menu"
 msgstr "Tambahkan laman tingkat-atas baru ke menu ini secara otomatis"
 
-#: wp-includes/class-wp-customize-nav-menus.php:511
+#: wp-includes/class-wp-customize-nav-menus.php:517
 #: wp-includes/js/dist/core-data.js:1634
 msgid "Menu Location"
 msgstr "Lokasi Menu"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1108
+#: wp-includes/class-wp-customize-nav-menus.php:1114
 #: wp-admin/nav-menus.php:1269
 msgid "Delete Menu"
 msgstr "Hapus Menu"
@@ -14205,6 +14250,10 @@ msgstr "Tambahkan Item"
 #: wp-includes/admin-bar.php:388 wp-admin/admin-header.php:48
 msgid "User Dashboard: %s"
 msgstr "Dasbor Pengguna: %s"
+
+#: wp-includes/admin-bar.php:208
+msgid "https://learn.wordpress.org/"
+msgstr "https://learn.wordpress.org/"
 
 #. translators: 1: The 'id' argument, 2: Sidebar name, 3: Recommended 'id'
 #. value.
@@ -14254,9 +14303,9 @@ msgid "F j, Y @ H:i:s"
 msgstr "j F Y @ H:i:s"
 
 #: wp-includes/class-wp-customize-nav-menus.php:169
-#: wp-includes/class-wp-customize-nav-menus.php:458
-#: wp-includes/class-wp-customize-nav-menus.php:507
-#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:321
+#: wp-includes/class-wp-customize-nav-menus.php:464
+#: wp-includes/class-wp-customize-nav-menus.php:513
+#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:339
 #: wp-includes/nav-menu.php:955
 msgid "Custom Link"
 msgstr "Tautan Tersuai"
@@ -14399,7 +14448,7 @@ msgstr "1 Komentar<span class=\"screen-reader-text\"> pada %s</span>"
 msgid "No Comments<span class=\"screen-reader-text\"> on %s</span>"
 msgstr "Tak ada komentar<span class=\"screen-reader-text\"> pada %s</span>"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1274
+#: wp-includes/class-wp-customize-nav-menus.php:1280
 #: wp-includes/class-wp-editor.php:1897 wp-includes/media-template.php:1057
 #: wp-admin/includes/nav-menu.php:358
 msgid "Link Text"
@@ -14757,7 +14806,7 @@ msgstr "Pilih semua"
 msgid "%s: %l."
 msgstr "%s: %l."
 
-#: wp-includes/class-wp-customize-nav-menus.php:505 wp-admin/js/nav-menu.js:837
+#: wp-includes/class-wp-customize-nav-menus.php:511 wp-admin/js/nav-menu.js:841
 msgctxt "missing menu item navigation label"
 msgid "(no label)"
 msgstr "(tanpa label)"
@@ -15411,7 +15460,7 @@ msgid "Create a new playlist"
 msgstr "Buat daftar putar baru"
 
 #. translators: Hidden accessibility text.
-#: wp-includes/class-wp-customize-nav-menus.php:1152
+#: wp-includes/class-wp-customize-nav-menus.php:1158
 #: wp-includes/class-wp-customize-panel.php:380
 #: wp-includes/class-wp-customize-section.php:370
 #: wp-includes/class-wp-customize-widgets.php:918
@@ -15713,7 +15762,7 @@ msgid "Select an area to move this widget into:"
 msgstr "Pilih satu area untuk menempatkan widget ini:"
 
 #. translators: Hidden accessibility text.
-#: wp-includes/class-wp-customize-nav-menus.php:1096
+#: wp-includes/class-wp-customize-nav-menus.php:1102
 #: wp-includes/class-wp-customize-widgets.php:723
 #: wp-includes/js/dist/block-editor.js:53026
 #: wp-includes/js/dist/block-editor.js:53027
@@ -15726,7 +15775,7 @@ msgid "Move up"
 msgstr "Pindahkan ke atas"
 
 #. translators: Hidden accessibility text.
-#: wp-includes/class-wp-customize-nav-menus.php:1097
+#: wp-includes/class-wp-customize-nav-menus.php:1103
 #: wp-includes/class-wp-customize-widgets.php:722
 #: wp-includes/js/dist/block-editor.js:53039
 #: wp-includes/js/dist/block-editor.js:53040
@@ -16011,9 +16060,9 @@ msgstr[1] "%s minggu"
 #. translators: %d: ID of a term.
 #: wp-includes/class-walker-page-dropdown.php:81
 #: wp-includes/class-walker-page.php:164
-#: wp-includes/class-wp-customize-nav-menus.php:238
-#: wp-includes/class-wp-customize-nav-menus.php:399
-#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:277
+#: wp-includes/class-wp-customize-nav-menus.php:240
+#: wp-includes/class-wp-customize-nav-menus.php:405
+#: wp-includes/customize/class-wp-customize-nav-menu-item-setting.php:296
 #: wp-includes/nav-menu.php:907 wp-includes/nav-menu.php:949
 #: wp-includes/nav-menu.php:996
 msgid "#%d (no title)"
@@ -16128,7 +16177,7 @@ msgstr "Alamat WordPress (URL)"
 
 #: wp-includes/class-wp-xmlrpc-server.php:2728
 #: wp-includes/rest-api/endpoints/class-wp-rest-application-passwords-controller.php:692
-#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:442
+#: wp-includes/rest-api/endpoints/class-wp-rest-users-controller.php:446
 #: wp-includes/user.php:2208 wp-includes/user.php:2654
 #: wp-includes/user.php:2660 wp-admin/user-edit.php:28
 #: wp-admin/user-edit.php:30
@@ -16770,8 +16819,8 @@ msgstr "Maaf, Anda tak dizinkan mengedit istilah-istilah dalam taksonomi ini."
 #: wp-includes/class-wp-xmlrpc-server.php:2256
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:213
 #: wp-includes/rest-api/endpoints/class-wp-rest-menus-controller.php:307
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:538
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:685
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:542
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:689
 #: wp-includes/taxonomy.php:2458 wp-includes/taxonomy.php:3260
 msgid "Parent term does not exist."
 msgstr "Istilah induk tidak ditemukan."
@@ -16786,7 +16835,7 @@ msgid "The term name cannot be empty."
 msgstr "Nama istilah tidak boleh kosong."
 
 #: wp-includes/class-wp-xmlrpc-server.php:2112
-#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:507
+#: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:511
 #: wp-admin/edit-tags.php:86
 msgid "Sorry, you are not allowed to create terms in this taxonomy."
 msgstr "Maaf, Anda tak dizinkan membuat terma-terma dalam taksonomi ini."
@@ -16860,7 +16909,7 @@ msgid "Customize: %s"
 msgstr "Sesuaikan: %s"
 
 #: wp-includes/class-wp-customize-control.php:596
-#: wp-includes/class-wp-customize-nav-menus.php:709
+#: wp-includes/class-wp-customize-nav-menus.php:715
 #: wp-includes/widgets/class-wp-nav-menu-widget.php:191 wp-admin/export.php:226
 #: wp-admin/export.php:231 wp-admin/export.php:278 wp-admin/export.php:283
 #: wp-admin/export.php:323 wp-admin/export.php:328
@@ -16922,8 +16971,8 @@ msgstr "Tipe taut gambar bawaan"
 #: wp-includes/class-wp-xmlrpc-server.php:6508
 #: wp-includes/class-wp-xmlrpc-server.php:6698
 #: wp-includes/class-wp-xmlrpc-server.php:6756
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:575
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:890
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:581
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:896
 #: wp-admin/includes/ajax-actions.php:2075 wp-admin/includes/media.php:3834
 #: wp-admin/includes/post.php:288 wp-admin/includes/post.php:2084
 #: wp-admin/includes/post.php:2088
@@ -16952,7 +17001,7 @@ msgid "Sorry, you are not allowed to edit posts in this post type."
 msgstr "Maaf, Anda tak dizinkan mengedit pos dalam tipe pos ini."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:309
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1164
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1170
 #: wp-includes/rest-api/endpoints/class-wp-rest-revisions-controller.php:521
 msgid "The post cannot be deleted."
 msgstr "Pos ini tidak bisa dihapus."
@@ -16986,15 +17035,15 @@ msgstr "Maaf, Anda tidak diizinkan menampilkan item ini."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1510
 #: wp-includes/class-wp-xmlrpc-server.php:5489
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1387
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1393
 #: wp-includes/rest-api/endpoints/class-wp-rest-templates-controller.php:651
 msgid "Invalid author ID."
 msgstr "ID penulis tidak sah."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1504
 #: wp-includes/class-wp-xmlrpc-server.php:5476
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:687
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:703
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:693
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:709
 #: wp-admin/includes/post.php:43 wp-admin/includes/post.php:88
 #: wp-admin/post-new.php:61 wp-admin/press-this.php:20
 msgid "Sorry, you are not allowed to create posts as this user."
@@ -17005,7 +17054,7 @@ msgid "Sorry, you are not allowed to create password protected posts in this pos
 msgstr "Maaf, Anda tidak diizinkan membuat pos yang dilindungi sandi dalam tipe pos ini."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1481
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1533
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1539
 msgid "Sorry, you are not allowed to create private posts in this post type."
 msgstr "Maaf, Anda tidak diizinkan untuk membuat pos privat pada tipe pos ini."
 
@@ -18140,7 +18189,7 @@ msgid "One response to %s"
 msgstr "Satu tanggapan untuk %s"
 
 #: wp-includes/admin-bar.php:1111
-#: wp-includes/class-wp-customize-nav-menus.php:675
+#: wp-includes/class-wp-customize-nav-menus.php:681
 #: wp-includes/customize/class-wp-customize-nav-menus-panel.php:113
 #: wp-includes/js/dist/block-library.js:34424 wp-admin/menu.php:232
 #: wp-admin/nav-menus.php:32 wp-admin/nav-menus.php:781
@@ -18200,11 +18249,11 @@ msgstr "Maaf, Anda tak dizinkan mengubah penulis laman sebagai pengguna ini."
 msgid "Sorry, you are not allowed to change the post author as this user."
 msgstr "Maaf, Anda tak dizinkan mengubah penulis pos sebagai pengguna ini."
 
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:898
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:904
 msgid "Sorry, you are not allowed to update posts as this user."
 msgstr "Maaf, Anda tak diizinkan memperbarui pos sebagai pengguna ini."
 
-#: wp-includes/class-wp-customize-nav-menus.php:951
+#: wp-includes/class-wp-customize-nav-menus.php:957
 #: wp-includes/class-wp-xmlrpc-server.php:1454
 #: wp-includes/class-wp-xmlrpc-server.php:2011
 #: wp-includes/class-wp-xmlrpc-server.php:3690
@@ -18222,7 +18271,7 @@ msgid "Invalid post type."
 msgstr "Tipe pos tidak sah."
 
 #: wp-includes/class-wp-xmlrpc-server.php:1487
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1543
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:1549
 msgid "Sorry, you are not allowed to publish posts in this post type."
 msgstr "Maaf, Anda tak diizinkan menerbitkan pos dalam tipe pos ini."
 
@@ -18277,7 +18326,7 @@ msgstr "Nama dan email penulis komentar wajib diisi."
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:374
 #: wp-includes/rest-api/endpoints/class-wp-rest-comments-controller.php:841
 #: wp-includes/rest-api/endpoints/class-wp-rest-menu-items-controller.php:445
-#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:542
+#: wp-includes/rest-api/endpoints/class-wp-rest-posts-controller.php:548
 #: wp-includes/rest-api/endpoints/class-wp-rest-terms-controller.php:205
 #: wp-includes/revision.php:362
 msgid "Invalid post ID."
@@ -18356,7 +18405,7 @@ msgstr "Tetapi, sebelum Anda mulai menggunakan nama pengguna baru Anda, <strong>
 msgid "%s is your new username"
 msgstr "%s adalah nama pengguna baru Anda"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1115
+#: wp-includes/class-wp-customize-nav-menus.php:1121
 #: wp-includes/script-loader.php:2002 wp-signup.php:660
 #: wp-includes/js/dist/block-library.js:45134
 #: wp-includes/js/dist/components.js:58773
@@ -18396,6 +18445,10 @@ msgstr "Ups: %s"
 #: wp-mail.php:73
 msgid "There does not seem to be any new mail."
 msgstr "Kelihatannya tak ada e-mail baru."
+
+#: wp-mail.php:48
+msgid "Slow down, no need to check for new mails so often!"
+msgstr "Pelan-pelan, tak perlu memeriksa pesan baru terlalu sering!"
 
 #: wp-login.php:1447
 msgid "You are now logged out."
@@ -19221,7 +19274,7 @@ msgid "Document properties"
 msgstr "Properti dokumen"
 
 #: wp-includes/class-wp-editor.php:1373 wp-includes/script-loader.php:1311
-#: wp-includes/theme.php:3746 wp-admin/js/nav-menu.js:1555
+#: wp-includes/theme.php:3746 wp-admin/js/nav-menu.js:1564
 #: wp-admin/js/post.js:493 wp-admin/js/theme-plugin-editor.js:71
 #: wp-admin/js/user-profile.js:519 wp-admin/js/widgets.js:98
 msgid "The changes you made will be lost if you navigate away from this page."
@@ -19912,7 +19965,7 @@ msgstr "Masukkan kata sandi Anda untuk melihat komentar."
 msgid "Comments on %s"
 msgstr "Komentar untuk %s"
 
-#: wp-includes/class-wp-customize-nav-menus.php:336
+#: wp-includes/class-wp-customize-nav-menus.php:342
 #: wp-includes/script-loader.php:1270
 #: wp-includes/js/dist/block-directory.js:1794
 #: wp-includes/js/dist/block-editor.js:48828
@@ -19921,7 +19974,7 @@ msgstr "Komentar untuk %s"
 #: wp-includes/js/dist/block-library.js:63257
 #: wp-includes/js/dist/commands.js:3793 wp-includes/js/dist/components.js:60459
 #: wp-admin/includes/nav-menu.php:721 wp-admin/includes/nav-menu.php:1097
-#: wp-admin/js/nav-menu.js:1758 wp-admin/js/tags-suggest.js:141
+#: wp-admin/js/nav-menu.js:1774 wp-admin/js/tags-suggest.js:141
 msgid "No results found."
 msgstr "Tak ditemukan hasil apapun."
 
@@ -20460,7 +20513,7 @@ msgid "All Categories"
 msgstr "Seluruh Kategori"
 
 #: wp-includes/class-wp-customize-control.php:648
-#: wp-includes/class-wp-customize-nav-menus.php:1241
+#: wp-includes/class-wp-customize-nav-menus.php:1247
 #: wp-includes/class-wp-post-type.php:992
 #: wp-includes/js/dist/block-library.js:22666
 #: wp-includes/js/dist/editor.js:6186 wp-includes/js/dist/editor.js:29355
@@ -21245,7 +21298,7 @@ msgctxt "noun"
 msgid "Comment"
 msgstr "Komentar"
 
-#: wp-includes/class-wp-customize-nav-menus.php:1269
+#: wp-includes/class-wp-customize-nav-menus.php:1275
 #: wp-includes/class-wp-editor.php:1271 wp-includes/class-wp-editor.php:1893
 #: wp-includes/customize/class-wp-customize-nav-menu-item-control.php:111
 #: wp-includes/embed.php:1192 wp-includes/media-template.php:899

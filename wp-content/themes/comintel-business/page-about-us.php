@@ -109,11 +109,10 @@ get_header();
         <div class="team-wrapper">
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a href="#" aria-label="team-linkedin"><i
+              <div class="team-card__sosmed"><a href="" aria-label="team-linkedin"><i
                     class="fab fa-linkedin fs-4"></i></a><a href="#" aria-label="team-mail"><i
-                    class="fas fa-envelope fs-4"></i></a><a href="#" aria-label="team-instagram"><i
-                    class="fab fa-instagram fs-4"></i></a></div><img class="figure-img"
-                src="<?php echo get_theme_file_uri('assets/images/founder/founder1.jpg') ?>" width="272" height="200"
+                    class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
+                src="<?php echo get_theme_file_uri('assets/images/founder/founder.jpeg') ?>" width="272" height="200"
                 alt="Figure__Cara-Membuat-Gambar-Pakai-Meta-AI">
             </figure>
             <div class="team-card__content">
@@ -124,11 +123,10 @@ get_header();
           </article>
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a href="#" aria-label="team-linkedin"><i
+              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="www.linkedin.com/in/mohamad-albar-640477124" aria-label="team-linkedin"><i
                     class="fab fa-linkedin fs-4"></i></a><a href="#" aria-label="team-mail"><i
-                    class="fas fa-envelope fs-4"></i></a><a href="#" aria-label="team-instagram"><i
-                    class="fab fa-instagram fs-4"></i></a></div><img class="figure-img"
-                src="<?php echo get_theme_file_uri('assets/images/founder/founder2.jpg') ?>" width="272" height="200"
+                    class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
+                src="<?php echo get_theme_file_uri('assets/images/founder/co-founder.jpeg') ?>" width="272" height="200"
                 alt="Figure__Cara-Membuat-Gambar-Pakai-Meta-AI">
             </figure>
             <div class="team-card__content">

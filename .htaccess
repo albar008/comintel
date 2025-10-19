@@ -1,3 +1,37 @@
+# 🚫 Disable directory listing
+Options -Indexes
+
+# -----------------------------------
+# 🔒 Protect sensitive files
+# -----------------------------------
+<Files wp-config.php>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files install.php>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# -----------------------------------
+# 🚫 Prevent image hotlinking
+# -----------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Izinkan dari domain sendiri
+    RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?comintel-tp\.com/ [NC]
+    RewriteCond %{HTTP_REFERER} !^$
+    
+    # Arahkan permintaan hotlink ke gambar peringatan
+    RewriteRule \.(jpe?g|gif|bmp|png|webp)$ /wp-content/themes/comintel-business/assets/images/stealingisbad.png [L]
+</IfModule>
 
 # BEGIN WordPress
 # The directives (lines) between "BEGIN WordPress" and "END WordPress" are
@@ -12,5 +46,3 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
-
-# END WordPress

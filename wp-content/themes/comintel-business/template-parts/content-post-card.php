@@ -25,7 +25,7 @@
       ?>
     </p>
   </div>
-  <div class="post-card__summary">
+  <div class="post-card__summary notranslate">
     <div class="publish-date"><i class="far fa-calendar-alt"></i>&nbsp;<span><?php the_time('Y-m-d') ?></span>
     </div>
     <div class="author"><i class="far fa-user"></i><span><?php the_author() ?></span></div>

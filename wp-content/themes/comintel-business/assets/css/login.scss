@@ -1,0 +1,39 @@
+@use 'variables';
+
+.login {
+  background-color: var(--brand-primary);
+
+  h1 {
+    >a {
+      background-image: url('../images/comintel-mark-logo-light.svg');
+    }
+  }
+}
+
+.login {
+  &.interim-login {
+    background-color: inherit;
+
+    h1 {
+      >a {
+        background-image: url('../images/comintel-mark-logo-dark.svg');
+      }
+    }
+  }
+}
+
+.privacy-policy-link {
+  color: var(--brand-white) !important;
+}
+
+p {
+  >a {
+    color: var(--brand-white) !important;
+  }
+}
+
+.language-switcher {
+  .dashicons-translation:before {
+    color: var(--brand-white);
+  }
+}

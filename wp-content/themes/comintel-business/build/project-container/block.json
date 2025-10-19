@@ -7,7 +7,18 @@
   "description": "Project Container block for Comintel Business theme",
   "render": "file:./render.php",
   "category": "comintel-business",
-  "attributes": {},
+  "attributes": {
+    "projects": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "allowedBlocks": [
+    "comintel-business-component/project-list"
+  ],
+  "providesContext": {
+    "comintel-business/project-container/projects": "projects"
+  },
   "viewScriptModule": "file:./view.js",
   "supports": {
     "customClassName": false,

@@ -25,7 +25,7 @@ const TEMPLATE = [
     {},
     [
       ["core/column", {}, [["comintel-business-component/link-list", {className: 'useful-links'}]],],
-      ["core/column", {}, [["comintel-business-component/link-list", {className: 'contact-info'}]],],
+      // ["core/column", {}, [["comintel-business-component/link-list", {className: 'contact-info'}]],],
     ],
   ],
 ];
@@ -57,12 +57,16 @@ export default function Edit({ attributes, setAttributes }) {
               </div>
             </div>
 
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-3">
               <InnerBlocks
                 template={TEMPLATE}
                 orientation="horizontal" 
-                templateLock="all"
+                // templateLock="all"
               />
+            </div>
+
+            <div className="col-12 col-md-3">
+              <h6 className="text-muted">Contact Information</h6>
             </div>
           </div>
         </div>

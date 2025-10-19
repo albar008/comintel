@@ -23,9 +23,12 @@
       "default": false
     }
   },
-  "viewScriptModule": "file:./view.js",
   "supports": {
     "customClassName": false,
-    "renaming": false
+    "renaming": false,
+    "color": {
+      "text": true,
+      "background": false
+    }
   }
 }

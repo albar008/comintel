@@ -12,7 +12,6 @@
       "type": "string"
     }
   },
-  "viewScriptModule": "file:./view.js",
   "supports": {
     "renaming": false
   }

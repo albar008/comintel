@@ -17,7 +17,6 @@
       "default": "Copyright © 2025 PT Comintel Tamarang Pratama. All rights reserved"
     }
   },
-  "viewScriptModule": "file:./view.js",
   "supports": {
     "customClassName": false,
     "multiple": false,

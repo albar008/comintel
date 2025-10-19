@@ -118,9 +118,9 @@ add_filter('style_loader_src', 'remove_wp_version_and_add_timestamp_if_not_local
 add_filter('script_loader_src', 'remove_wp_version_and_add_timestamp_if_not_local_assets', 9999);
 
 
-function ourLoginTitle()
-{
-  return get_bloginfo('name');
+function ourLoginTitle( $headertext ) {
+	$headertext = esc_html__( 'Welcome to WordPress', 'plugin-textdomain' );
+	return $headertext;
 }
 add_filter('login_headertext', 'ourLoginTitle');
 function ourHeaderUrl()
@@ -128,6 +128,11 @@ function ourHeaderUrl()
   return esc_url(site_url(('/')));
 }
 add_filter('login_headerurl', 'ourHeaderUrl');
+
+
+add_action('login_enqueue_scripts', function () {
+  wp_enqueue_style('custom-login', get_theme_file_uri('/build/login.css'));
+});
 
 function comintelBusinessBlocks()
 {
@@ -244,8 +249,6 @@ function show_current_user_attachments($query = array())
 
 add_filter('ajax_query_attachments_args', 'show_current_user_attachments', 10, 1);
 
-remove_action('wp_head', 'wp_generator');
-
 // Hide Plugins
 function comintel_hide_specific_plugins($plugins)
 {
@@ -260,7 +263,14 @@ function comintel_hide_specific_plugins($plugins)
   }
   return $plugins;
 }
-add_filter('all_plugins', 'comintel_hide_specific_plugins');
+// add_filter('all_plugins', 'comintel_hide_specific_plugins');
+
+add_filter('plugin_action_links_carbon-fields/carbon-fields-plugin.php', function($links) {
+    if (isset($links['deactivate'])) {
+        unset($links['deactivate']);
+    }
+    return $links;
+});
 
 add_action('init', function () {
   add_rewrite_rule(
@@ -346,5 +356,40 @@ add_filter('manage_edit-project_sortable_columns', function ($columns) {
   $columns['related_service'] = 'related_service'; // sama seperti nama kolom
   return $columns;
 });
+
+
+// add_filter('rest_pre_dispatch', function ($result, $server, $request) {
+//     if (!is_user_logged_in()) {
+//         return new WP_Error(
+//             'rest_disabled',
+//             'Not allowed.',
+//             ['status' => 401]
+//         );
+//     }
+//     return $result;
+// }, 10, 3);
+
+add_filter('rest_endpoints', function ($endpoints) {
+    // Batasi akses ke daftar user
+    if (isset($endpoints['/wp/v2/users'])) {
+        $endpoints['/wp/v2/users'][0]['permission_callback'] = function () {
+            return is_user_logged_in() && current_user_can('manage_options'); // hanya user login
+        };
+    }
+
+    // Batasi akses ke user berdasarkan ID
+    if (isset($endpoints['/wp/v2/users/(?P<id>[\d]+)'])) {
+        $endpoints['/wp/v2/users/(?P<id>[\d]+)'][0]['permission_callback'] = function () {
+            return is_user_logged_in() && current_user_can('manage_options'); // hanya user login
+        };
+    }
+
+    return $endpoints;
+});
+
+
+// Remove
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wp_generator');
 
 

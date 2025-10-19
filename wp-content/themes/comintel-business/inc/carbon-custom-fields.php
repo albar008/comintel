@@ -11,10 +11,10 @@ function crb_attach_theme_options()
             // Field::make('separator', 'section_social', 'Social Media'),
             Field::make('complex', 'social_media_links', 'Social Media Links')
                 ->add_fields(array(
-                    Field::make('text', 'fa_icon_name', 'Font awesome Icon Name')
+                    Field::make('text', 'cr-fa_icon_name', 'Font awesome Icon Name')
                         ->set_width(20)
                         ->set_help_text('Example: fa-facebook'),
-                    Field::make('text', 'url_link', 'URL Link')
+                    Field::make('text', 'cr-url_link', 'URL Link')
                         ->set_width(80)
                         ->set_help_text('Example: https://www.facebook.com/comintel.tamarangpratama')
                         ->set_attribute('type', 'url')
@@ -22,14 +22,21 @@ function crb_attach_theme_options()
         ));
 
     Container::make('theme_options', __('Contact Informations'))
+        ->set_page_file('contact-informations')
         ->set_page_parent('comintel-business-settings') // reference to a top level container
         ->add_fields(array(
-            Field::make('text', 'com_phone_number', __('Phone Number'))
+            Field::make('text', 'cr-com_phone_number', __('Phone Number'))
                 ->set_attribute('type', 'tel'),
-            Field::make('text', 'com_mail', __('Email'))
+            Field::make('text', 'cr-com_mail', __('Email'))
                 ->set_attribute('type', 'email'),
-            Field::make('text', 'com_address', __('Address')),
-            Field::make('text', 'com_work_hours', __('Working Hours')),
+            Field::make('textarea', 'cr-com_address', __('Address')),
+            Field::make('text', 'cr-com_lat', __('Latitude'))
+                ->set_width(50)
+                ->set_attribute('type', 'number'),
+            Field::make('text', 'cr-com_long', __('Longitude'))
+                ->set_width(50)
+                ->set_attribute('type', 'number'),
+            Field::make('text', 'cr-com_work_hours', __('Working Hours')),
         ));
 }
 

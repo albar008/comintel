@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "run-s buildIndex buildBlocks",
-    "buildIndex": "wp-scripts build src/index",
+    "buildIndex": "wp-scripts build src/index src/login/login",
     "buildBlocks": "wp-scripts build --experimental-modules",
-    "start": "wp-scripts start src/index",
+    "start": "wp-scripts start src/index src/login/login",
     "blocks": "wp-scripts start --experimental-modules",
     "dev": "wp-scripts start",
     "devFast": "wp-scripts start",

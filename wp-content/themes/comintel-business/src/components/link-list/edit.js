@@ -16,7 +16,6 @@ export default function Edit({ attributes, setAttributes }) {
       />
       <ul className="list-unstyled">
         <InnerBlocks
-          allowedBlocks={["comintel-business-component/link-list-item"]}
           templateLock={false}
         />
       </ul>
