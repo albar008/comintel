@@ -13,8 +13,8 @@
     </a>
   </figure>
   <div class="post-card__content">
-    <h3 class="fs-4 fw-bold" style="font-family: Unna, serif;"><a href="<?php the_permalink() ?>"><span
-          style="font-weight: normal !important;"><?php the_title() ?></span></a></h3>
+    <h3 class="fs-4 fw-bold" style="font-family: Unna, serif;"><a title="<?php echo get_the_title() ?>" href="<?php the_permalink() ?>"><span
+          style="font-weight: normal !important;"><?php echo wp_strip_all_tags(wp_trim_words(get_the_title(), 7)) ?></span></a></h3>
     <p>
       <?php
       if (has_excerpt()) {

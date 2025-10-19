@@ -68,7 +68,7 @@ get_header();
     <div class="row">
       <div class="col-md-6 d-none d-md-block">
         <div class="rect-img--left rect-img--decoration"><img
-            src="<?php echo get_theme_file_uri('assets/images/ctp-vis-mis-img.png') ?>"
+            src="<?php echo get_theme_file_uri('assets/images/room-ctp1.png') ?>"
             alt="vision and mission - image"></div>
       </div>
       <div class="col-12 col-md-6">
