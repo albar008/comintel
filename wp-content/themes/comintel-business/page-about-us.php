@@ -109,8 +109,8 @@ get_header();
         <div class="team-wrapper">
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a href="" aria-label="team-linkedin"><i
-                    class="fab fa-linkedin fs-4"></i></a><a href="#" aria-label="team-mail"><i
+              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/budiman-ajie-68164617" aria-label="team-linkedin"><i
+                    class="fab fa-linkedin fs-4"></i></a><a href="mailto:bdm@comintel-tp.com" aria-label="team-mail"><i
                     class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
                 src="<?php echo get_theme_file_uri('assets/images/founder/founder.jpeg') ?>" width="272" height="200"
                 alt="Figure__Cara-Membuat-Gambar-Pakai-Meta-AI">
@@ -123,8 +123,8 @@ get_header();
           </article>
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="www.linkedin.com/in/mohamad-albar-640477124" aria-label="team-linkedin"><i
-                    class="fab fa-linkedin fs-4"></i></a><a href="#" aria-label="team-mail"><i
+              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/mohamad-albar-640477124" aria-label="team-linkedin"><i
+                    class="fab fa-linkedin fs-4"></i></a><a href="mailto:albar@comintel-tp.com" aria-label="team-mail"><i
                     class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
                 src="<?php echo get_theme_file_uri('assets/images/founder/co-founder.jpeg') ?>" width="272" height="200"
                 alt="Figure__Cara-Membuat-Gambar-Pakai-Meta-AI">
