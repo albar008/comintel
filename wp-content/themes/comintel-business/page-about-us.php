@@ -9,18 +9,7 @@ get_header();
   <div class="container d-flex py-4 py-xl-5">
     <div class="row gy-4 gx-lg-5">
       <div class="col-12 col-md-6">
-        <!-- Start: Grid Image Container -->
-        <div class="grid-image__container">
-          <div class="grid-image__item"><img src="<?php echo get_theme_file_uri('assets/images/chips.jpg') ?>"
-              loading="lazy" alt="Computer Tech"></div>
-          <div class="grid-image__item"><img class="img-fluid"
-              src="<?php echo get_theme_file_uri('assets/images/satelite.jpg') ?>" loading="lazy"
-              alt="Telecommunication"></div>
-          <div class="grid-image__item"><img class="img-fluid"
-              src="<?php echo get_theme_file_uri('assets/images/laptop.jpg') ?>" loading="lazy"
-              alt="Information System"></div>
-          <div class="grid-image__divider"></div>
-        </div><!-- End: Grid Image Container -->
+        <?php get_template_part('template-parts/content', 'grid-image-about'); ?>
       </div>
       <div class="col-12 col-md-6">
         <header class="section-header section-header--with-bg"><small class="fs-6 section-header__subtitle">About
@@ -68,8 +57,8 @@ get_header();
     <div class="row">
       <div class="col-md-6 d-none d-md-block">
         <div class="rect-img--left rect-img--decoration"><img
-            src="<?php echo get_theme_file_uri('assets/images/room-ctp1.png') ?>"
-            alt="vision and mission - image"></div>
+            src="<?php echo get_theme_file_uri('assets/images/room-ctp1.png') ?>" alt="vision and mission - image">
+        </div>
       </div>
       <div class="col-12 col-md-6">
         <article class="vision-box">
@@ -109,7 +98,8 @@ get_header();
         <div class="team-wrapper">
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/budiman-ajie-68164617" aria-label="team-linkedin"><i
+              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank"
+                  href="https://linkedin.com/in/budiman-ajie-68164617" aria-label="team-linkedin"><i
                     class="fab fa-linkedin fs-4"></i></a><a href="mailto:bdm@comintel-tp.com" aria-label="team-mail"><i
                     class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
                 src="<?php echo get_theme_file_uri('assets/images/founder/founder.jpeg') ?>" width="272" height="200"
@@ -123,9 +113,10 @@ get_header();
           </article>
           <article class="team-card">
             <figure class="figure team-card__img-box">
-              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank" href="https://linkedin.com/in/mohamad-albar-640477124" aria-label="team-linkedin"><i
-                    class="fab fa-linkedin fs-4"></i></a><a href="mailto:albar@comintel-tp.com" aria-label="team-mail"><i
-                    class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
+              <div class="team-card__sosmed"><a rel="noopener noreferrer" target="_blank"
+                  href="https://linkedin.com/in/mohamad-albar-640477124" aria-label="team-linkedin"><i
+                    class="fab fa-linkedin fs-4"></i></a><a href="mailto:albar@comintel-tp.com"
+                  aria-label="team-mail"><i class="fas fa-envelope fs-4"></i></a></div><img class="figure-img"
                 src="<?php echo get_theme_file_uri('assets/images/founder/co-founder.jpeg') ?>" width="272" height="200"
                 alt="Figure__Cara-Membuat-Gambar-Pakai-Meta-AI">
             </figure>

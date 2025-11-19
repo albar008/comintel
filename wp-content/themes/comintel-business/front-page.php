@@ -6,18 +6,7 @@ block_template_part('home-header');
   <div class="container d-flex py-4 py-xl-5">
     <div class="row gy-4 gx-lg-5">
       <div class="col-12 col-md-6">
-        <!-- Start: Grid Image Container -->
-        <div class="grid-image__container">
-          <div class="grid-image__item"><img src="<?php echo get_theme_file_uri('assets/images/chips.jpg') ?>"
-              loading="lazy" alt="Computer Tech"></div>
-          <div class="grid-image__item"><img class="img-fluid"
-              src="<?php echo get_theme_file_uri('assets/images/satelite.jpg') ?>" loading="lazy"
-              alt="Telecommunication"></div>
-          <div class="grid-image__item"><img class="img-fluid"
-              src="<?php echo get_theme_file_uri('assets/images/laptop.jpg') ?>" loading="lazy"
-              alt="Information System"></div>
-          <div class="grid-image__divider"></div>
-        </div><!-- End: Grid Image Container -->
+        <?php get_template_part('template-parts/content', 'grid-image-about'); ?>
       </div>
       <div class="col-12 col-md-6">
         <header class="section-header section-header--with-bg"><small class="fs-6 section-header__subtitle">About
@@ -176,7 +165,8 @@ block_template_part('home-header');
         <header class="section-header"><small class="fs-6 section-header__subtitle">Our Latest News</small>
           <h2 class="section-header__title" style="font-family: Unna, serif;">Our Latest News And Insights</h2>
         </header>
-        <p class="section-header__desc">Dive into our blog for the latest advancements in technology, IT systems, and telecommunications. Discover
+        <p class="section-header__desc">Dive into our blog for the latest advancements in technology, IT systems, and
+          telecommunications. Discover
           expert insights, actionable tips, and emerging trends that help you stay ahead in an ever-evolving industry.
           Designed for business leaders and tech enthusiasts, our articles keep you informed and inspired.</p><a
           href="<?php echo esc_url(site_url('blog')) ?>" class="btn btn-primary d-none d-lg-inline-block"

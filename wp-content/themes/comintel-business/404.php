@@ -250,8 +250,8 @@
             </g>
           </svg>
         </div>
-        <h2 class="company-name">PT Comintel Tamarang Pratama</h2>
-        <small><i>Beyond Tech, Toward Impact.</i></small>
+        <h2 class="company-name"><?php echo get_bloginfo('name') ?></h2>
+        <small><i><?php echo get_bloginfo('description') ?></i></small>
       </div>
 
       <!-- 404 Title -->
