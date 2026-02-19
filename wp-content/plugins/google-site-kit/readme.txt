@@ -2,9 +2,9 @@
 
 Contributors:      google
 Requires at least: 5.2
-Tested up to:      6.8
+Tested up to:      6.9
 Requires PHP:      7.4
-Stable tag:        1.163.0
+Stable tag:        1.172.0
 License:           Apache License 2.0
 License URI:       https://www.apache.org/licenses/LICENSE-2.0
 Tags:              google, search-console, analytics, adsense, pagespeed-insights
@@ -109,30 +109,34 @@ Please create a new topic on our [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 1.163.0 =
+= 1.172.0 =
 
 **Enhanced**
 
-* Update `service_version` to `v3` in proxy metadata when the `setupFlowRefresh` feature flag is enabled. See [#11488](https://github.com/google/site-kit-wp/issues/11488).
-* Add "manage email reports" link for Proactive User Engagement feature. See [#11423](https://github.com/google/site-kit-wp/issues/11423).
-* Implement Conversion Events, ABR, Consent Mode, SiwG and Key Metrics feature metrics tracking. See [#11422](https://github.com/google/site-kit-wp/issues/11422).
-* Implement Audience Segmentation, AdSense reporting, Dashboard Sharing and RRM feature metrics tracking. See [#11421](https://github.com/google/site-kit-wp/issues/11421).
-* Add the `googlesitekit-key-metrics-setup` screen, with stub content. See [#11373](https://github.com/google/site-kit-wp/issues/11373).
-* Ensure the `analytics.edit` scope is included in the set of required scopes for the Analytics module when the `setupFlowRefresh` feature flag is enabled. See [#11372](https://github.com/google/site-kit-wp/issues/11372).
-* Conditionally display a “Search Console was successfully set up” toast notification on the Analytics setup screen. See [#11339](https://github.com/google/site-kit-wp/issues/11339).
-* Create `ToastNotice`, a generic component for displaying short-lived "toast" messages. See [#11338](https://github.com/google/site-kit-wp/issues/11338).
-* Ensure all occurrences of the term "consent mode" have the correct casing. Props cnaples79. See [#11076](https://github.com/google/site-kit-wp/issues/11076).
-* Revise the wording on the "Congrats on completing the setup for Site Kit!" banner. See [#9001](https://github.com/google/site-kit-wp/issues/9001).
-
-**Changed**
-
-* Consolidate One-tap settings to a single setting. See [#11466](https://github.com/google/site-kit-wp/issues/11466).
-* Update version of NodeJS used to build Site Kit. See [#6026](https://github.com/google/site-kit-wp/issues/6026).
+* Update generated PHP client library for Reader Revenue Manager. See [#12077](https://github.com/google/site-kit-wp/issues/12077).
+* Update the Welcome modal's close button interaction states (hover, active, focus) to match the new design. See [#12045](https://github.com/google/site-kit-wp/issues/12045).
+* Add Reader Revenue Manager setup success notification variants for publications with policy violations. See [#12015](https://github.com/google/site-kit-wp/issues/12015).
+* Add dashboard notifications for Reader Revenue Manager policy violations. See [#12005](https://github.com/google/site-kit-wp/issues/12005).
+* Fix bug that could cause tooltips to stay on-screen when the email frequency panel is opened. See [#11968](https://github.com/google/site-kit-wp/issues/11968).
+* Improve Analytics notice button behaviour and text in Email Reporting UI. See [#11960](https://github.com/google/site-kit-wp/issues/11960).
+* Add internal tracking for WP Pointer. See [#11932](https://github.com/google/site-kit-wp/issues/11932).
+* Add module disconnection tracking functionality. See [#11883](https://github.com/google/site-kit-wp/issues/11883).
+* Add error notices for the Email Reporting sending failures. See [#11861](https://github.com/google/site-kit-wp/issues/11861).
+* Implement error notice infrastructure in admin settings and email reports subscription panel. See [#11860](https://github.com/google/site-kit-wp/issues/11860).
+* Add eligible subscribers selector to email reporting datastore. See [#11858](https://github.com/google/site-kit-wp/issues/11858).
+* Share API requests for shared modules between users when generating email reports. See [#11845](https://github.com/google/site-kit-wp/issues/11845).
+* Prevent the Site Kit setup success notification from appearing when the Welcome modal is displayed. See [#11819](https://github.com/google/site-kit-wp/issues/11819).
+* Update the Analytics setup CTA shown in the Search Funnel widget, WP Dashboard and Admin Bar app, and make it dismissible. See [#11816](https://github.com/google/site-kit-wp/issues/11816).
+* Add new setup flow Analytics-connected dashboard tour. See [#11813](https://github.com/google/site-kit-wp/issues/11813).
+* Update info tooltips to be tappable. See [#11681](https://github.com/google/site-kit-wp/issues/11681).
+* Standardise the implementation of the user and view-only user menu. See [#11520](https://github.com/google/site-kit-wp/issues/11520).
 
 **Fixed**
 
-* Fix bug that caused sites that may be unable to install Site Kit from seeing a warning message during plugin setup. See [#11574](https://github.com/google/site-kit-wp/issues/11574).
-* Prevent the checkbox hover/focus state from being clipped on the Ad Blocking Recovery screen. See [#11309](https://github.com/google/site-kit-wp/issues/11309).
-* Fix bug that could cause Enhanced Conversion Tracking to be enabled when it shouldn't be after OAuth login. See [#11196](https://github.com/google/site-kit-wp/issues/11196).
+* Fix redirect URLs used when the new setup flow is enabled. See [#12061](https://github.com/google/site-kit-wp/issues/12061).
+* Update Email Reporting templates to address minor issues. See [#11963](https://github.com/google/site-kit-wp/issues/11963).
+* Fix Email Reporting subscription panel issues on module setup screens. See [#11958](https://github.com/google/site-kit-wp/issues/11958).
+* Fix sending Email Reporting emails in multisite mode. See [#11955](https://github.com/google/site-kit-wp/issues/11955).
+* Fix bug that could cause administrators on multisites to be unable to access shared dashboard without signing in to their Google account. See [#11953](https://github.com/google/site-kit-wp/issues/11953).
 
 [See changelog for all versions](https://raw.githubusercontent.com/google/site-kit-wp/main/changelog.txt).

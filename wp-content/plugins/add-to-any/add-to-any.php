@@ -3,7 +3,7 @@
  * Plugin Name: AddToAny Share Buttons
  * Plugin URI: https://www.addtoany.com/
  * Description: Share buttons for your pages including AddToAny's universal sharing button, Facebook, Mastodon, LinkedIn, Pinterest, WhatsApp and many more.
- * Version: 1.8.13
+ * Version: 1.8.16
  * Author: AddToAny
  * Author URI: https://www.addtoany.com/
  * Text Domain: add-to-any
@@ -782,6 +782,11 @@ function A2A_SHARE_SAVE_add_to_content( $content ) {
 		// Return early.
 		return $content;
 	}
+
+	// Only add in the main query loop to avoid the custom post types of editor plugins, etc.
+	if ( ! in_the_loop() || ! is_main_query() ) {
+		return $content;
+	}
 	
 	$sharing_disabled = get_post_meta( get_the_ID(), 'sharing_disabled', true );
 	$sharing_disabled = apply_filters( 'addtoany_sharing_disabled', $sharing_disabled );
@@ -792,7 +797,7 @@ function A2A_SHARE_SAVE_add_to_content( $content ) {
 		// Sharing disabled on post?
 		! empty( $sharing_disabled ) 
 	) {
-		// Return early
+		// Return early.
 		return $content;
 	}
 	
@@ -830,9 +835,7 @@ function A2A_SHARE_SAVE_add_to_content( $content ) {
 			// Individual pages.
 			( is_singular('page') && isset( $options['display_in_pages'] ) && $options['display_in_pages'] == '-1' ) ||
 			// Attachment (media) pages.
-			( is_attachment() && isset( $options['display_in_attachments'] ) && $options['display_in_attachments'] == '-1' ) ||
-			// <!--nosharesave--> legacy tag.
-			( (strpos( $content, '<!--nosharesave-->') !== false ) )
+			( is_attachment() && isset( $options['display_in_attachments'] ) && $options['display_in_attachments'] == '-1' )
 		)
 	) {
 		// Return early.

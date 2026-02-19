@@ -671,6 +671,13 @@ final class Assets {
 					),
 				)
 			),
+			new Script(
+				'googlesitekit-admin-pointers-tracking',
+				array(
+					'src'          => $base_url . 'js/googlesitekit-admin-pointers-tracking.js',
+					'dependencies' => $this->get_asset_dependencies(),
+				)
+			),
 			// WP Dashboard assets.
 			new Script(
 				'googlesitekit-wp-dashboard',
@@ -774,6 +781,7 @@ final class Assets {
 			'ampMode'           => $this->context->get_amp_mode(),
 			'isNetworkMode'     => $this->context->is_network_mode(),
 			'timezone'          => get_option( 'timezone_string' ),
+			'startOfWeek'       => (int) get_option( 'start_of_week' ),
 			'siteName'          => wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES ),
 			'siteLocale'        => $this->context->get_locale(),
 			'enabledFeatures'   => Feature_Flags::get_enabled_features(),
@@ -874,6 +882,7 @@ final class Assets {
 			'user' => array(
 				'id'      => $current_user->ID,
 				'email'   => $current_user->user_email,
+				'wpEmail' => $current_user->user_email, // Preserved for features that need the original WP email (email gets overridden during proxy auth).
 				'name'    => $current_user->display_name,
 				'picture' => get_avatar_url( $current_user->user_email ),
 			),

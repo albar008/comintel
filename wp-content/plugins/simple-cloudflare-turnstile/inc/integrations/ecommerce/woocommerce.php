@@ -85,7 +85,15 @@ if(get_option('cfturnstile_woo_checkout')) {
 
 	// Check Turnstile
 	add_action('woocommerce_checkout_process', 'cfturnstile_woo_checkout_check');
+	add_action('woocommerce_after_checkout_validation', 'cfturnstile_woo_checkout_check');
 	function cfturnstile_woo_checkout_check() {
+
+		// Prevent duplicate execution within a single request.
+		static $cfturnstile_wc_checkout_ran = false;
+		if ( $cfturnstile_wc_checkout_ran ) {
+			return;
+		}
+
 		// Skip if Turnstile disabled for payment method
 		$skip = 0;
 		if ( isset( $_POST['payment_method'] ) ) {
@@ -118,6 +126,7 @@ if(get_option('cfturnstile_woo_checkout')) {
 			} else {
 				$nonce = wp_create_nonce( 'cfturnstile_checkout_check' );
 				$_SESSION['cfturnstile_checkout_checked'] = $nonce;
+				$cfturnstile_wc_checkout_ran = true; // Mark as executed
 			}
 		}
 	}
@@ -155,11 +164,11 @@ if(get_option('cfturnstile_woo_checkout')) {
 							}
 						}
 					}
-				// Allow customization via filter, defaults to skip when WooPayments or Stripe express is detected.
-				$skip_on_express = apply_filters( 'cfturnstile_skip_on_express_pay', ( ($payment_method === 'woocommerce_payments' || $payment_method === 'stripe') && $express_detected ), $payment_method, $payment_data, $request );
-				if ( $skip_on_express ) {
-					$skip = 1;
-				}
+					// Allow customization via filter, defaults to skip when WooPayments or Stripe express is detected.
+					$skip_on_express = apply_filters( 'cfturnstile_skip_on_express_pay', ( ($payment_method === 'woocommerce_payments' || $payment_method === 'stripe') && $express_detected ), $payment_method, $payment_data, $request );
+					if ( $skip_on_express ) {
+						$skip = 1;
+					}
 				}
 			}
 
@@ -175,14 +184,12 @@ if(get_option('cfturnstile_woo_checkout')) {
 			// Check
 			if( !$skip && (!$guest || ( $guest && !is_user_logged_in() )) ) {
 				$extensions = $request->get_param( 'extensions' );
-				if ( empty( $extensions ) ) {
+				$token = ( is_array( $extensions ) && isset( $extensions['simple-cloudflare-turnstile']['token'] ) ) ? $extensions['simple-cloudflare-turnstile']['token'] : '';
+
+				if ( empty( $token ) ) {
 					throw new \Exception( cfturnstile_failed_message() );
 				}
-				$value = $extensions[ 'simple-cloudflare-turnstile' ];
-				if ( empty( $value ) ) {
-					throw new \Exception( cfturnstile_failed_message() );
-				}
-				$token = $value['token'];	
+				
 				$check = cfturnstile_check( $token );
 				$success = $check['success'];
 				if($success != true) {
@@ -195,8 +202,12 @@ if(get_option('cfturnstile_woo_checkout')) {
 		}
 	}
 
-	add_action('woocommerce_loaded', 'cfturnstile_register_endpoint_data');
+	add_action('woocommerce_loaded', 'cfturnstile_register_endpoint_data', 20);
 	function cfturnstile_register_endpoint_data() {
+		if ( ! function_exists( 'woocommerce_store_api_register_endpoint_data' ) ) {
+			return;
+		}
+
 		woocommerce_store_api_register_endpoint_data(
 			array(
 				'endpoint'        => 'checkout',
@@ -204,9 +215,10 @@ if(get_option('cfturnstile_woo_checkout')) {
 				'schema_callback' => function() {
 					return array(
 						'token' => array(
-							'description' => __( 'Turnstile token.', 'cfturnstile' ),
-							'type'        => 'string',
-							'context'     => array()
+							'description'       => __( 'Turnstile token.', 'cfturnstile' ),
+							'type'              => 'string',
+							'context'           => array( 'view', 'edit' ),
+							'sanitize_callback' => 'sanitize_text_field',
 						),
 					);
 				},
@@ -284,6 +296,17 @@ if(get_option('cfturnstile_woo_login')) {
 			if(isset($_SESSION['cfturnstile_login_checked'])) { unset($_SESSION['cfturnstile_login_checked']); }
 		}
 	}
+}
+
+// WP login check to skip when Woo login is disabled
+add_filter( 'cfturnstile_wp_login_checks', 'cfturnstile_woo_skip_wp_login_check', 10, 1 );
+function cfturnstile_woo_skip_wp_login_check( $skip ) {
+	// If the WooCommerce login integration is disabled but a Woo login form is submitted,
+	// skip the global WordPress login Turnstile check.
+	if ( ! get_option( 'cfturnstile_woo_login' ) && isset( $_POST['woocommerce-login-nonce'] ) ) {
+		return true;
+	}
+	return $skip;
 }
 
 // Woo Register Check

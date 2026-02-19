@@ -3,8 +3,8 @@ Contributors: navzme
 Donate link: https://buymeacoffee.com/navzme
 Tags: acf, gallery, images, videos, media
 Requires at least: 5.8
-Tested up to: 6.8
-Stable tag: 1.4.2
+Tested up to: 6.9
+Stable tag: 1.4.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ Enhance your WordPress website with ACF Galerie 4, a powerful and customizable g
 == Description ==
 ACF Galerie 4 is a versatile WordPress plugin designed to simplify the creation and management of media galleries on your website. With its intuitive interface and robust features, you can effortlessly showcase your media in a visually appealing and engaging way.
 
-[youtube https://www.youtube.com/watch?v=jRMppgpcA-0]
+[youtube https://www.youtube.com/watch?v=te2HOJOF1e4]
 
 === Features ===
 1. **Effortless Gallery Creation**: Build stunning galleries with ease using Advanced Custom Fields (ACF).
@@ -45,6 +45,9 @@ The ACF Galerie 4 plugin is also available in a professional version, offering m
 3. Install and Activate ACF Galerie 4 from your Plugins page
 
 == Changelog ==
+= 1.4.3 =
+* [Fixed] Added proper capability and nonce checks to migration process
+
 = 1.4.2 =
 * [Fixed] array_keys() expects array, null issue in PHP 8.x
 
