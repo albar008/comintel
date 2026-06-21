@@ -4,8 +4,8 @@ Donate link: https://yoa.st/1up
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
-Tested up to: 6.9
-Stable tag: 26.9
+Tested up to: 7.0
+Stable tag: 27.8
 Requires PHP: 7.4
 
 Improve your SEO with real-time feedback, schema, and clear guidance. Upgrade for AI tools, Google Docs integration, and 24/7 support, no hidden fees.
@@ -303,47 +303,53 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 26.9 =
+= 27.8 =
 
-Release date: 2026-02-03
+Release date: 2026-06-09
 
-Yoast SEO 26.9 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
-
-#### Other
-
-* Ensures no deprecated props are used for WordPress components `ToggleControl` and `TextControl` for How-to block.
-* Improves performance in large sites with lots of inbound links by adding appropriate database indices.
-* Improves the general security of the plugin via sanitization and escaping.
-* Replaces deprecated standard WordPress components with their modern variants.
-* WooCommerce introduced a [new logic for permalinks in version 10.5](https://developer.woocommerce.com/2026/01/13/product-permalink-changes-coming-in-woocommerce-10-5/). Since this update could result in mismatching Yoast SEO metadata (such as Schema.org data), this version of Yoast SEO temporarily restores the old behavior. Note that for users of Yoast WooCommerce SEO the new permanent link structure will apply.
-* Sets the minimum supported WordPress version to 6.8.
-* Updates the OAuth2 Client library for improved compatibility with PHP 8.5.
-
-= 26.8 =
-
-Release date: 2026-01-20
-
-Yoast SEO 26.8 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
+Yoast SEO 27.8 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
 
 #### Enhancements
 
-* Adds a schema settings page to allow users more control over the Yoast Schema Framework API.
-* Implements a new, easy-to-use design for the site features settings.
+* Makes the schema aggregator faster by reducing database roundtrips when indexables are disabled.
+* Speeds up the SEO optimization analysis by cutting down the number of database queries it runs.
+* Optimizes resource-heavy database queries when performing actions on admin pages related to SEO optimization.
+* Reduces loading times of the root sitemap on sites with many users.
+* Reduces loading times of the author sitemap on sites with many users.
+* Prevents unnecessary database queries when someone visits an admin page.
 
 #### Bugfixes
 
-* Fixes a bug where inserting Yoast blocks via Content blocks collapsible was not possible when editing in `template-locked` mode inside Block Editor.
-* Fixes a bug where the alert for signing up to the newsletter didn't support rtl direction for buttons and inputs in RTL languages.
-* Fixes a bug where the assessments highlighting feature did not work when editing in template-locked mode in the Block Editor.
-* Fixes a bug where the Search and Social appearance modals looked off on WordPress 7.0 or with Gutenberg 22.3.0.
-* Fixes a bug where WordPress link classes were not being recognized when Yoast SEO was active. Props to [benoitchantre](https://github.com/benoitchantre).
+* Ensures compatibility with the React 19 version bundled in Gutenberg 23.3 (WordPress 7.1), fixing several screens and components that could otherwise fail to render.
+* Fixes a bug where NaN became the Primary taxonomy and triggered a console error.
+* Fixes a bug where the dismiss button in the Webinar promo notice on the General page was transparent.
+* Improves post editor rendering performance by stabilizing Redux selector and `withSelect` references in multiple components to prevent unnecessary re-renders.
 
 #### Other
 
-* Adds an opt-in notification for the task list feature on the general page.
-* Improves the translatability of some tasks' title in the task list.
-* Replaces Yoast product logos with new designs across the plugin’s interface.
-* Updates the product URL inside the marker presenter for Yoast SEO and Yoast SEO Premium.
+* Introduces the `wpseo_custom_fields_pre_query` filter, letting sites skip the resource-heavy custom-fields lookup in Yoast settings by supplying a pre-computed list or a custom query.
+* Removes the Yoast group from the filter bar on the WordPress plugins list.
+* Sets the title of a child task to "(no title)" in the task list when the related post has no title.
+
+= 27.7 =
+
+Release date: 2026-05-27
+
+Yoast SEO 27.7 brings more enhancements and bugfixes. [Find more information about our software releases and updates here](https://yoa.st/releases).
+
+#### Bugfixes
+
+* Fixes a bug in Schema aggregator where products Schema pieces had incorrect `@id` values for `mainEntityOfPage` and `image` properties.
+* Fixes a bug where a `FocusTrap` warning was thrown and the X button did not receive focus when the replace content confirmation modal from the AI Content Planner was opened.
+* Fixes a bug where a warning was triggered in the console when editing a post with the Content Planner feature enabled.
+* Fixes a bug where only the first piece was returned when indexables were not available.
+* Fixes a bug where the AI features section was rendered twice on the user profile page.
+* Fixes a bug where the block editor was crashing when some AI features were triggering errors.
+* Fixes a bug where the Content Planner inline banner was displayed when editing a template or template part.
+
+#### Other
+
+* Makes the Academy, Upgrade and Brand insights links visible to more user roles.
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).

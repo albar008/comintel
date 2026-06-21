@@ -1,5 +1,6 @@
 /* Woo Checkout */
 jQuery( document ).ready(function() {
+
     var cfturnstileWooCheckoutAttempted = false;
 
     // Track actual submission attempts so we don't reset on every checkout refresh.
@@ -13,23 +14,25 @@ jQuery( document ).ready(function() {
     }
 
     jQuery( document.body ).on( 'update_checkout updated_checkout applied_coupon_in_checkout removed_coupon_in_checkout', function() {
-        // Re-render if the widget container was replaced/emptied.
-        if ( jQuery('#cf-turnstile-woo-checkout').is(':empty') ) {
-            turnstileWooCheckoutReset();
+        // Re-render if the widget container was replaced/emptied or is missing entirely.
+        var $widget = jQuery('#cf-turnstile-woo-checkout');
+        if ( !$widget.length || $widget.is(':empty') ) {
+            // Use longer delay to ensure DOM replacement is complete.
+            setTimeout( turnstileWooCheckoutReset, 300 );
             return;
         }
 
         // After a failed submit, Woo will typically refresh the checkout fragments.
         // Reset here (only after an attempted submit) to avoid the stale/used token issue.
         if ( cfturnstileWooCheckoutAttempted && jQuery('.woocommerce-error, .woocommerce-NoticeGroup-checkout .woocommerce-error').length ) {
-            setTimeout( turnstileWooCheckoutReset, 50 );
+            setTimeout( turnstileWooCheckoutReset, 300 );
             cfturnstileWooCheckoutAttempted = false;
         }
     });
 
     // Woo triggers this when the AJAX checkout submission returns an error.
     jQuery( document.body ).on( 'checkout_error', function() {
-        setTimeout( turnstileWooCheckoutReset, 50 );
+        setTimeout( turnstileWooCheckoutReset, 500 );
         cfturnstileWooCheckoutAttempted = false;
     });
 });
@@ -73,10 +76,13 @@ function turnstileWooCheckoutReset() {
         try { turnstile.render('#cf-turnstile-woo-checkout'); } catch (e2) {}
     }
 }
-/* On click ".checkout .showlogin" link re-render */
-jQuery('.showlogin').on('click', function() {
-    turnstile.remove('.sct-woocommerce-login');
-    turnstile.render('.sct-woocommerce-login');
+
+/* On click "show login" link re-render */
+jQuery('.showlogin, .show-login, .e-show-login, .woocommerce-form-login-toggle a').on('click', function() {
+    setTimeout(function() {
+        turnstile.remove('.sct-woocommerce-login');
+        turnstile.render('.sct-woocommerce-login');
+    }, 250);
 });
 
 /* Woo Checkout Block */
@@ -85,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function setTurnstileExtensionData(token) {
             var dispatch = wp.data.dispatch('wc/store/checkout');
+            if (!dispatch) return;
             if (typeof dispatch.setExtensionData === 'function') {
                 dispatch.setExtensionData('simple-cloudflare-turnstile', { token: token });
             } else if (typeof dispatch.__internalSetExtensionData === 'function') {
@@ -93,10 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function cfturnstileWooBlockCheckoutRender() {
+
             var turnstileItem = document.getElementById('cf-turnstile-woo-checkout');
             if (!turnstileItem) return;
 
-            // If already initialized by us, try reset to preserve state but clear token
+            // If already initialized, try reset to preserve state but clear token
             if (turnstileItem.getAttribute('data-sct-init') === 'true' && turnstileItem.hasChildNodes()) {
                 try {
                     turnstile.reset(turnstileItem);
@@ -111,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 turnstile.render(turnstileItem, {
                     sitekey: turnstileItem.dataset.sitekey,
+                    appearance: turnstileItem.dataset.appearance || 'always',
                     callback: setTurnstileExtensionData,
                     'expired-callback': function() { setTurnstileExtensionData(''); }
                 });
@@ -126,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             cfturnstileWooBlockClickTimer = setTimeout(function() {
                 cfturnstileWooBlockCheckoutRender();
-            }, 1250);
+            }, 2000);
         });
 
         // Render Turnstile when the checkout data is updated and the widget is not present or not initialized

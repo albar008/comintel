@@ -6,6 +6,8 @@
  * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
+ *
+ * phpcs:disable PHPCS.Commenting.RequireDocTagDescription -- Pre-existing violations; tracked for follow-up cleanup.
  */
 
 namespace Google\Site_Kit\Core\Site_Health;
@@ -16,6 +18,8 @@ use Google\Site_Kit\Core\Authentication\Clients\OAuth_Client;
 use Google\Site_Kit\Core\Conversion_Tracking\Conversion_Tracking;
 use Google\Site_Kit\Core\Email_Reporting\Email_Reporting_Settings as Site_Email_Reporting_Settings;
 use Google\Site_Kit\Core\Email_Reporting\Email_Reporting_Site_Health;
+use Google\Site_Kit\Core\Email_Reporting\Subscribed_Users_Query;
+use Google\Site_Kit\Core\User\Email_Reporting_Settings as User_Email_Reporting_Settings;
 use Google\Site_Kit\Core\Key_Metrics\Key_Metrics_Settings;
 use Google\Site_Kit\Core\Key_Metrics\Key_Metrics_Setup_Completed_By;
 use Google\Site_Kit\Core\Modules\Module;
@@ -699,9 +703,14 @@ class Debug_Data {
 	 * @return array
 	 */
 	private function get_email_reports_fields() {
+		$subscribed_users_query = new Subscribed_Users_Query(
+			new User_Email_Reporting_Settings( $this->user_options ),
+			$this->modules
+		);
+
 		$site_health = new Email_Reporting_Site_Health(
 			new Site_Email_Reporting_Settings( $this->options ),
-			$this->user_options
+			$subscribed_users_query
 		);
 
 		return $site_health->get_debug_fields();

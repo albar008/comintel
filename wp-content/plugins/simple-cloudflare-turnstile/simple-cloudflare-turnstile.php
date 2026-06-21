@@ -1,22 +1,24 @@
 <?php
 /**
- * Plugin Name: Simple CAPTCHA Alternative with Cloudflare Turnstile
+ * Plugin Name: Simple CAPTCHA with Cloudflare Turnstile
  * Description: Easily add Cloudflare Turnstile to your WordPress forms. The user-friendly, privacy-preserving CAPTCHA alternative.
- * Version: 1.37.0
+ * Version: 1.41.0
  * Author: Elliot Sowersby, RelyWP
  * Author URI: https://www.relywp.com
  * License: GPLv3 or later
  * Text Domain: simple-cloudflare-turnstile
  *
  * WC requires at least: 3.4
- * WC tested up to: 10.4
+ * WC tested up to: 10.7
  **/
 
 // Include Admin Files
-include(plugin_dir_path(__FILE__) . 'inc/admin/admin-options.php');
-include(plugin_dir_path(__FILE__) . 'inc/admin/register-settings.php');
-include(plugin_dir_path(__FILE__) . 'inc/admin/export-import.php');
-include(plugin_dir_path(__FILE__) . 'inc/config-keys.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/admin/admin-options.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/admin/register-settings.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/admin/analytics-tab.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/admin/export-tab.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/admin/export-import.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/config-keys.php');
 
 /**
  * On activate redirect to settings page
@@ -62,7 +64,7 @@ function cfturnstile_admin_script_enqueue() {
 	if (isset($_GET['page']) && $_GET['page'] == 'cfturnstile') {
 		$defer = get_option('cfturnstile_defer_scripts', 1) ? array('strategy' => 'defer') : array();
 		wp_enqueue_script('cfturnstile-admin-js', plugins_url('/js/admin-scripts.js', __FILE__), '', '2.10', true);
-		wp_enqueue_style('cfturnstile-admin-css', plugins_url('/css/admin-style.css', __FILE__), array(), '2.10');
+		wp_enqueue_style('cfturnstile-admin-css', plugins_url('/css/admin-style.css', __FILE__), array(), '2.12');
 		// Load Turnstile API without defer on the settings page for reliable admin test rendering
 		wp_enqueue_script("cfturnstile", "https://challenges.cloudflare.com/turnstile/v0/api.js?render=auto", array(), '', array());
 	}
@@ -70,9 +72,9 @@ function cfturnstile_admin_script_enqueue() {
 add_action('admin_enqueue_scripts', 'cfturnstile_admin_script_enqueue');
 
 // Include Errors
-include(plugin_dir_path(__FILE__) . 'inc/errors.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/errors.php');
 // Resource hints for Turnstile
-include(plugin_dir_path(__FILE__) . 'inc/integrations/other/resource-hints.php');
+include_once(plugin_dir_path(__FILE__) . 'inc/integrations/other/resource-hints.php');
 
 /**
  * If keys are set, load Turnstile
@@ -85,47 +87,60 @@ if (!empty(get_option('cfturnstile_key')) && !empty(get_option('cfturnstile_secr
 	add_action("cfturnstile_enqueue_scripts", "cfturnstile_script_enqueue");
 	add_action("login_enqueue_scripts", "cfturnstile_script_enqueue");
 	function cfturnstile_script_enqueue() {
-		// Return if already enqueued
-		if (wp_script_is('cfturnstile', 'enqueued')) {
-			return;
-		}
 		// Get current theme
 		$current_theme = wp_get_theme();
-		// Check defer scripts option
-		$defer = get_option('cfturnstile_defer_scripts', 1) ? array('strategy' => 'defer') : array();
+		// Load in the footer
+		$script_args = array('in_footer' => true);
+		// Defer loading if enabled in settings
+		if ( get_option('cfturnstile_defer_scripts', 1) ) {
+			$script_args['strategy'] = 'defer';
+		}
 		/* Turnstile */
-		wp_enqueue_script("cfturnstile", "https://challenges.cloudflare.com/turnstile/v0/api.js?render=auto", array(), null, $defer);
-		/* Disable Button */
-		if (get_option('cfturnstile_disable_button')) { wp_enqueue_script('cfturnstile-js', plugins_url('/js/disable-submit.js', __FILE__), array('cfturnstile'), '5.0'); }
+		if ( !wp_script_is('cfturnstile', 'enqueued') ) {
+			$turnstile_render_mode = ( function_exists('cfturnstile_is_block_based_checkout') && cfturnstile_is_block_based_checkout() ) ? 'explicit' : 'auto';
+			wp_enqueue_script("cfturnstile", "https://challenges.cloudflare.com/turnstile/v0/api.js?render=" . $turnstile_render_mode, array(), null, $script_args);
+		}
+		/* Disable Button / Login Submit Block */
+		if ( (get_option('cfturnstile_disable_button') || get_option('cfturnstile_login')) && !wp_script_is('cfturnstile-js', 'enqueued') ) { wp_enqueue_script('cfturnstile-js', plugins_url('/js/disable-submit.js', __FILE__), array('cfturnstile'), '5.2', $script_args); }
+		/* Interaction Only / Execute Helper (toggles widget label and spacer when the widget is visible) */
+		if ( get_option('cfturnstile_appearance', 'always') !== 'always' && !wp_script_is('cfturnstile-label-js', 'enqueued') ) { wp_enqueue_script('cfturnstile-label-js', plugins_url('/js/interaction-label.js', __FILE__), array(), '1.1', $script_args); }
 		/* WooCommerce */
-		if (cft_is_plugin_active('woocommerce/woocommerce.php')) { wp_enqueue_script('cfturnstile-woo-js', plugins_url('/js/integrations/woocommerce.js', __FILE__), array('jquery', 'cfturnstile', 'wp-data'), '1.3', $defer); }
+		if ( cft_is_plugin_active('woocommerce/woocommerce.php') && !wp_script_is('cfturnstile-woo-js', 'enqueued') ) { wp_enqueue_script('cfturnstile-woo-js', plugins_url('/js/integrations/woocommerce.js', __FILE__), array('jquery', 'cfturnstile', 'wp-data'), '1.5', $script_args); }
 		/* WPDiscuz */
-		if(cft_is_plugin_active('wpdiscuz/class.WpdiscuzCore.php')) { wp_enqueue_style('cfturnstile-css', plugins_url('/css/cfturnstile.css', __FILE__), array(), '1.2'); }
+		if ( cft_is_plugin_active('wpdiscuz/class.WpdiscuzCore.php') && !wp_style_is('cfturnstile-css', 'enqueued') ) { wp_enqueue_style('cfturnstile-css', plugins_url('/css/cfturnstile.css', __FILE__), array(), '1.2'); }
 		/* Blocksy */
-		if ('blocksy' === $current_theme->get('TextDomain')) { wp_enqueue_script('cfturnstile-blocksy-js', plugins_url('/js/integrations/blocksy.js', __FILE__), array('cfturnstile'), '1.1', false); }
+		if ( 'blocksy' === $current_theme->get('TextDomain') && !wp_script_is('cfturnstile-blocksy-js', 'enqueued') ) { wp_enqueue_script('cfturnstile-blocksy-js', plugins_url('/js/integrations/blocksy.js', __FILE__), array('cfturnstile'), '1.1', $script_args); }
+		/* Custom Hook for Integrations */
+		do_action("cfturnstile_enqueue_scripts_custom");
 	}
 
 	/**
 	 * Add data-cfasync="false" to Turnstile script tag
 	 */
-	function add_data_attribute($tag, $handle) {
+	function cfturnstile_add_data_attribute($tag, $handle) {
 		if ('cfturnstile' === $handle) {
 			$tag = str_replace("src='", "data-cfasync='false' src='", $tag);
 		}
 		return $tag;
 	}
-	add_filter('script_loader_tag', 'add_data_attribute', 10, 2);
+	add_filter('script_loader_tag', 'cfturnstile_add_data_attribute', 10, 2);
 
 	/**
 	 * Include Functions
 	 */
-	include(plugin_dir_path(__FILE__) . 'inc/failsafe.php');
-	include(plugin_dir_path(__FILE__) . 'inc/turnstile.php');
+	include_once(plugin_dir_path(__FILE__) . 'inc/failsafe.php');
+	include_once(plugin_dir_path(__FILE__) . 'inc/verification.php');
+	include_once(plugin_dir_path(__FILE__) . 'inc/turnstile.php');
 
 	/**
 	 * Include Whitelist
 	 */
-	include(plugin_dir_path(__FILE__) . 'inc/whitelist.php');
+	include_once(plugin_dir_path(__FILE__) . 'inc/whitelist.php');
+
+	/**
+	 * Include Analytics
+	 */
+	include_once(plugin_dir_path(__FILE__) . 'inc/analytics.php');
 
 	/**
 	 * Include Integrations
@@ -133,130 +148,136 @@ if (!empty(get_option('cfturnstile_key')) && !empty(get_option('cfturnstile_secr
 	if(empty(get_option('cfturnstile_tested')) || get_option('cfturnstile_tested') == 'yes') {
 
 		// Performance Plugins Compatibility
-		if ( get_option('cfturnstile_perf_compat', 1) &&
-			(cft_is_plugin_active('sg-cachepress/sg-cachepress.php') ||
-			cft_is_plugin_active('litespeed-cache/litespeed-cache.php') ||
-			cft_is_plugin_active('wp-rocket/wp-rocket.php'))
-		) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/other/perf.php');
+		if ( get_option('cfturnstile_perf_compat', 1) ) {
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/other/perf.php');
 		}
 		
 		// Include WordPress
-		include(plugin_dir_path(__FILE__) . 'inc/wordpress.php');
+		include_once(plugin_dir_path(__FILE__) . 'inc/wordpress.php');
 
 		// Include WooCommerce
 		if (cft_is_plugin_active('woocommerce/woocommerce.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/woocommerce.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/woocommerce.php');
 		}
 
 		// Include EDD
 		if (cft_is_plugin_active('easy-digital-downloads/easy-digital-downloads.php') || cft_is_plugin_active('easy-digital-downloads-pro/easy-digital-downloads.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/edd.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/edd.php');
 		}
 
 		// Include PMP
 		if (cft_is_plugin_active('paid-memberships-pro/paid-memberships-pro.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/pmp.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/pmp.php');
+		}
+
+		// Include Sunshine Photo Cart
+		if (cft_is_plugin_active('sunshine-photo-cart/sunshine-photo-cart.php')) {
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/ecommerce/sunshine-photo-cart.php');
 		}
 
 		// Include MC4WP
 		if (cft_is_plugin_active('mailchimp-for-wp/mailchimp-for-wp.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/newsletters/mc4wp.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/newsletters/mc4wp.php');
 		}
 
 		// Include MailPoet
 		if (cft_is_plugin_active('mailpoet/mailpoet.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/newsletters/mailpoet.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/newsletters/mailpoet.php');
 		}
 		
 		// Include Contact Form 7
 		if (cft_is_plugin_active('contact-form-7/wp-contact-form-7.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/contact-form-7.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/contact-form-7.php');
 		}
 
 		// Include WPForms
 		if (cft_is_plugin_active('wpforms-lite/wpforms.php') || cft_is_plugin_active('wpforms/wpforms.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/wpforms.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/wpforms.php');
 		}
 
 		// Include Fluent Forms
 		if (cft_is_plugin_active('fluentform/fluentform.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/fluent-forms.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/fluent-forms.php');
+		}
+
+		// Include SureForms
+		if (cft_is_plugin_active('sureforms/sureforms.php')) {
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/sureforms.php');
 		}
 
 		// Include Formidable Forms
 		if (cft_is_plugin_active('formidable/formidable.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/formidable.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/formidable.php');
 		}
 
 		// Include Forminator Forms
 		if (cft_is_plugin_active('forminator/forminator.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/forminator.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/forminator.php');
 		}
 
 		// Include Gravity Forms
 		if (cft_is_plugin_active('gravityforms/gravityforms.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/gravity-forms.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/gravity-forms.php');
 		}
 
 		// Include Buddypress
 		if (cft_is_plugin_active('buddypress/bp-loader.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/community/buddypress.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/community/buddypress.php');
 		}
 
 		// Include BBPress
 		if (cft_is_plugin_active('bbpress/bbpress.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/community/bbpress.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/community/bbpress.php');
 		}
 
 		// Include WPDiscuz
 		if (cft_is_plugin_active('wpdiscuz/class.WpdiscuzCore.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/community/wpdiscuz.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/community/wpdiscuz.php');
 		}
 
 		// Include Elementor Forms
 		if ( cft_is_plugin_active('elementor-pro/elementor-pro.php') || cft_is_plugin_active('pro-elements/pro-elements.php') ) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/other/elementor.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/other/elementor.php');
 		}
 
 		// Include Kadence
 		if (cft_is_plugin_active('kadence-blocks/kadence-blocks.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/kadence.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/kadence.php');
 		}
 
 		// Include Ultimate Member
 		if (cft_is_plugin_active('ultimate-member/ultimate-member.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/membership/ultimate-member.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/membership/ultimate-member.php');
 		}
 
 		// Include MemberPress
 		if (cft_is_plugin_active('memberpress/memberpress.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/membership/memberpress.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/membership/memberpress.php');
 		}
 
 		// Include WP-Members
 		if (cft_is_plugin_active('wp-members/wp-members.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wp-members.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wp-members.php');
 		}
 
 		// Include WP User Frontend
 		if (cft_is_plugin_active('wp-user-frontend/wpuf.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wpuf.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wpuf.php');
 		}
 
 		// WP User Manager
 		if (cft_is_plugin_active('wp-user-manager/wp-user-manager.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wp-user-manager.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/membership/wp-user-manager.php');
 		}
 
 		// Clean Login
 		if (cft_is_plugin_active('clean-login/clean-login.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/other/clean-login.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/other/clean-login.php');
 		}
 
 		// Jetpack Forms
 		if (cft_is_plugin_active('jetpack/jetpack.php')) {
-			include(plugin_dir_path(__FILE__) . 'inc/integrations/forms/jetpack.php');
+			include_once(plugin_dir_path(__FILE__) . 'inc/integrations/forms/jetpack.php');
 		}
 	}
 
@@ -268,5 +289,7 @@ if (!empty(get_option('cfturnstile_key')) && !empty(get_option('cfturnstile_secr
 add_action( 'before_woocommerce_init', function() {
 	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
 		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'cart_checkout_blocks', __FILE__, true );
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'product_block_editor', __FILE__, true );
 	}
 });

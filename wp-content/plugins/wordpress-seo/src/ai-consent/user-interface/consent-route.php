@@ -17,6 +17,7 @@ use Yoast\WP\SEO\AI_HTTP_Request\Domain\Exceptions\Request_Timeout_Exception;
 use Yoast\WP\SEO\AI_HTTP_Request\Domain\Exceptions\Service_Unavailable_Exception;
 use Yoast\WP\SEO\AI_HTTP_Request\Domain\Exceptions\Too_Many_Requests_Exception;
 use Yoast\WP\SEO\Conditionals\AI_Conditional;
+use Yoast\WP\SEO\Conditionals\Old_Premium_AI_Conditional;
 use Yoast\WP\SEO\Main;
 use Yoast\WP\SEO\Routes\Route_Interface;
 
@@ -63,7 +64,7 @@ class Consent_Route implements Route_Interface {
 	 * @return array<string> The conditionals.
 	 */
 	public static function get_conditionals() {
-		return [ AI_Conditional::class ];
+		return [ AI_Conditional::class, Old_Premium_AI_Conditional::class ];
 	}
 
 	/**
@@ -97,7 +98,7 @@ class Consent_Route implements Route_Interface {
 				],
 				'callback'            => [ $this, 'consent' ],
 				'permission_callback' => [ $this, 'check_permissions' ],
-			]
+			],
 		);
 	}
 
@@ -110,7 +111,7 @@ class Consent_Route implements Route_Interface {
 	 */
 	public function consent( WP_REST_Request $request ): WP_REST_Response {
 		$user_id = \get_current_user_id();
-		$consent = \boolval( $request->get_param( 'consent' ) );
+		$consent = (bool) $request->get_param( 'consent' );
 
 		try {
 			if ( $consent ) {

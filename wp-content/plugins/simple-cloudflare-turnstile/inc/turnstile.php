@@ -42,8 +42,11 @@ function cfturnstile_field_show($button_id = '', $callback = '', $form_name = ''
 			} else {
 				$label_text = wp_strip_all_tags($label_text);
 			}
+			$label_interaction = ( get_option('cfturnstile_appearance', 'always') === 'interaction-only' );
+			$label_class = 'cfturnstile-widget-label' . ( $label_interaction ? ' cfturnstile-widget-label-interaction' : '' );
+			$label_style = 'font-size: 14px; margin: 0 0 6px 0; width: 100%;' . ( $label_interaction ? ' display: none;' : '' );
 			?>
-			<p class="cfturnstile-widget-label" style="font-size: 14px; margin: 0 0 6px 0;"><small><?php echo esc_html($label_text); ?></small></p>
+			<p class="<?php echo esc_attr($label_class); ?>" style="<?php echo esc_attr($label_style); ?>"><small><?php echo esc_html($label_text); ?></small></p>
 			<?php
 		}
 		$key = sanitize_text_field(get_option('cfturnstile_key'));
@@ -51,7 +54,9 @@ function cfturnstile_field_show($button_id = '', $callback = '', $form_name = ''
 		$language = sanitize_text_field(get_option('cfturnstile_language'));
 		$appearance = sanitize_text_field(get_option('cfturnstile_appearance', 'always'));
 		$cfturnstile_size = sanitize_text_field(get_option('cfturnstile_size'), 'normal');
+		$refresh_timeout = sanitize_text_field(get_option('cfturnstile_refresh_timeout', 'auto'));
 			if(!$language) { $language = 'auto'; }
+			if(!$refresh_timeout) { $refresh_timeout = 'auto'; }
 		?>
 		<div id="cf-turnstile<?php echo esc_attr($unique_id); ?>"
 		class="cf-turnstile<?php if($class) { echo " " . esc_attr($class); } ?>" <?php if (get_option('cfturnstile_disable_button')) { ?>data-callback="<?php echo esc_attr($callback); ?>"<?php } ?>
@@ -61,9 +66,10 @@ function cfturnstile_field_show($button_id = '', $callback = '', $form_name = ''
 		data-size="<?php echo esc_attr($cfturnstile_size); ?>"
 		data-retry="auto" data-retry-interval="1000"
 		data-refresh-expired="auto"
+		data-refresh-timeout="<?php echo esc_attr($refresh_timeout); ?>"
 		data-action="<?php echo esc_attr($form_name); ?>"
+		data-callback="<?php echo esc_attr($callback); ?>"
 		<?php if(get_option('cfturnstile_failure_message_enable')) { ?>
-		data-callback="cfturnstileCallback"
 		data-error-callback="cfturnstileErrorCallback"
 		<?php } ?>
 		data-appearance="<?php echo esc_attr($appearance); ?>"></div>
@@ -98,8 +104,9 @@ function cfturnstile_always_br($unique_id) {
 		<br class="cf-turnstile-br cf-turnstile-br<?php echo esc_attr($unique_id); ?>">
 		<?php
 	} else {
+		// Interaction Only / Execute: only show the spacer when the widget is actually visible.
 		?>
-		<style>#cf-turnstile<?php echo esc_html($unique_id); ?> iframe { margin-bottom: 15px; }</style>
+		<br class="cf-turnstile-br cf-turnstile-br<?php echo esc_attr($unique_id); ?> cfturnstile-widget-spacer-interaction" style="display: none;">
 		<?php
 	}
 }
@@ -162,11 +169,14 @@ function cfturnstile_force_render($unique_id = '') {
 		return;
 	}
 	$unique_id = sanitize_text_field($unique_id);
-	$key = sanitize_text_field(get_option('cfturnstile_key'));
 	if($unique_id) {
-	?>
-	<script>document.addEventListener("DOMContentLoaded", function() { setTimeout(function(){ var e=document.getElementById("cf-turnstile<?php echo esc_html($unique_id); ?>"); e&&!e.innerHTML.trim()&&(turnstile.remove("#cf-turnstile<?php echo esc_html($unique_id); ?>"), turnstile.render("#cf-turnstile<?php echo esc_html($unique_id); ?>", {sitekey:"<?php echo esc_html($key); ?>"})); }, 100); });</script>
-	<?php
+		if ( ! wp_script_is('cfturnstile-render', 'registered') ) {
+			wp_register_script('cfturnstile-render', '', array('cfturnstile'), false, array('in_footer' => true));
+		}
+		wp_enqueue_script('cfturnstile-render');
+		$escaped_id = esc_js($unique_id);
+		$script = '(function(){var a=0,d=false,q=false;function r(){if(d)return;var e=document.getElementById("cf-turnstile' . $escaped_id . '");if(!e)return;if(e.innerHTML.trim()){d=true;return;}if(window.turnstile&&typeof window.turnstile.render==="function"){try{window.turnstile.render(e);d=true;}catch(_){}}}function w(){r();if(d)return;if(window.turnstile&&typeof window.turnstile.ready==="function"&&!q){q=true;try{window.turnstile.ready(r);}catch(_){}}if(!d&&a++<100){setTimeout(w,100);}}if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",w);}else{w();}})();';
+		wp_add_inline_script('cfturnstile-render', $script);
 	}
 }
 
@@ -245,12 +255,35 @@ function cfturnstile_check($postdata = "") {
 			$results['success'] = false;
 		}
 
-		foreach ($response as $key => $val) {
-			if ($key == 'error-codes') {
-				foreach ($val as $key => $error_val) {
+		foreach ( $response as $key => $val ) {
+			if ( 'error-codes' === $key ) {
+				foreach ( $val as $key => $error_val ) {
 					$results['error_code'] = $error_val;
-					if($error_val == 'invalid-input-secret') {
-						update_option('cfturnstile_tested', 'no'); // Disable if invalid secret
+					if ( 'invalid-input-secret' === $error_val ) {
+						// Rate-limit: only process once per 5 minutes to avoid repeated DB writes on high-traffic sites.
+						if ( false === get_transient( 'cfturnstile_invalid_secret_throttle' ) ) {
+							set_transient( 'cfturnstile_invalid_secret_throttle', 1, 5 * MINUTE_IN_SECONDS );
+							$already_flagged = ( 'no' === get_option( 'cfturnstile_soft_tested' ) );
+							update_option( 'cfturnstile_invalid_secret_notice', '1' );
+							update_option( 'cfturnstile_soft_tested', 'no' );
+							if ( ! $already_flagged ) {
+								$admin_email  = get_option( 'admin_email' );
+								$site_name    = get_bloginfo( 'name' );
+								$settings_url = admin_url( 'options-general.php?page=cfturnstile' );
+								$subject      = sprintf(
+									/* translators: %s: Site name. */
+									__( '[%s] Cloudflare Turnstile: Invalid Secret Key Detected', 'simple-cloudflare-turnstile' ),
+									$site_name
+								);
+								$message = sprintf(
+									/* translators: 1: Site name, 2: Settings page URL. */
+									__( "Cloudflare has reported that the Turnstile secret key on %1\$s is invalid (error: invalid-input-secret).\n\nTurnstile is still active on your forms, but verifications may be failing until the key is corrected.\n\nPlease check your API keys on the settings page:\n%2\$s", 'simple-cloudflare-turnstile' ),
+									$site_name,
+									$settings_url
+								);
+								wp_mail( $admin_email, $subject, $message );
+							}
+						}
 					}
 				}
 			}
@@ -262,50 +295,10 @@ function cfturnstile_check($postdata = "") {
 
 	} else {
 
-		return false;
+		return array( 'success' => false );
 
 	}
 	
-}
-
-/* 
- * Add Turnstile check to a "cfturnstile_log" option
- */
-add_action('cfturnstile_after_check', 'cfturnstile_log', 10, 2);
-function cfturnstile_log($response, $results) {
-	if(get_option('cfturnstile_log_enable')) {
-		// Get log
-		$cfturnstile_log = get_option('cfturnstile_log');
-		if(!$cfturnstile_log) {
-			$cfturnstile_log = array();
-		}
-		// If $results['error_code'] is not set, set it to empty
-		if(!isset($results['error_code'])) {
-			$results['error_code'] = '';
-		}
-		// Get Values
-		$error_code = $results['error_code'];
-		// Success Yes or No
-		if($response->success) {
-			$success = true;
-		} else {
-			$success = false;
-		}
-		// Add to log
-		$cfturnstile_log[] = array(
-			'date' => date('Y-m-d H:i:s'),
-			'success' => $success,
-			'error' => $error_code,
-			'ip' => cfturnstile_get_ip(),
-			'page' => $_SERVER['REQUEST_URI'],
-		);
-		// Max 50
-		if(count($cfturnstile_log) > 50) {
-			array_shift($cfturnstile_log);
-		}
-		// Update log
-		update_option('cfturnstile_log', $cfturnstile_log);
-	}
 }
 
 /**

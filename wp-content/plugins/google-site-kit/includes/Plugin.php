@@ -6,6 +6,8 @@
  * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
+ *
+ * phpcs:disable PHPCS.Commenting.RequireDocTagDescription -- Pre-existing violations; tracked for follow-up cleanup.
  */
 
 namespace Google\Site_Kit;
@@ -184,6 +186,11 @@ final class Plugin {
 				$permissions = new Core\Permissions\Permissions( $this->context, $authentication, $modules, $user_options, $dismissed_items );
 				$permissions->register();
 
+				$golinks = new Core\Golinks\Golinks( $this->context );
+				$golinks->register();
+				$golinks->register_handler( 'dashboard', new Core\Golinks\Dashboard_Golink_Handler() );
+				$golinks->register_handler( 'connect-analytics-4', new Core\Golinks\Connect_Module_Golink_Handler( Modules\Analytics_4::MODULE_SLUG ) );
+
 				$nonces = new Core\Nonces\Nonces( $this->context );
 				$nonces->register();
 
@@ -222,6 +229,7 @@ final class Plugin {
 				( new Core\Util\Migration_1_129_0( $this->context, $options ) )->register();
 				( new Core\Util\Migration_1_150_0( $this->context, $options ) )->register();
 				( new Core\Util\Migration_1_163_0( $this->context, $options ) )->register();
+				( new Core\Util\Migration_1_177_0( $this->context, $options ) )->register();
 				( new Core\Dashboard_Sharing\Dashboard_Sharing( $this->context ) )->register();
 				( new Core\Key_Metrics\Key_Metrics( $this->context, $user_options, $options ) )->register();
 				( new Core\Prompts\Prompts( $this->context, $user_options ) )->register();
@@ -235,12 +243,11 @@ final class Plugin {
 					$data_requests = new Core\Email_Reporting\Email_Reporting_Data_Requests(
 						$this->context,
 						$modules,
-						$conversion_tracking,
 						$transients,
 						$user_options,
 					);
 
-					( new Core\Email_Reporting\Email_Reporting( $this->context, $modules, $data_requests, $authentication, $options, $user_options ) )->register();
+					( new Core\Email_Reporting\Email_Reporting( $this->context, $modules, $data_requests, $golinks, $authentication, $options, $user_options ) )->register();
 				}
 
 				if ( Feature_Flags::enabled( 'googleTagGateway' ) ) {

@@ -6,6 +6,8 @@
  * @copyright 2021 Google LLC
  * @license   https://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0
  * @link      https://sitekit.withgoogle.com
+ *
+ * phpcs:disable PHPCS.Commenting.RequireDocTagDescription -- Pre-existing violations; tracked for follow-up cleanup.
  */
 
 namespace Google\Site_Kit\Modules\Reader_Revenue_Manager;
@@ -14,8 +16,6 @@ use Google\Site_Kit\Core\Modules\Module_Settings;
 use Google\Site_Kit\Core\Storage\Setting_With_Owned_Keys_Interface;
 use Google\Site_Kit\Core\Storage\Setting_With_Owned_Keys_Trait;
 use Google\Site_Kit\Core\Storage\Setting_With_ViewOnly_Keys_Interface;
-use Google\Site_Kit\Core\Util\BC_Functions;
-use Google\Site_Kit\Core\Util\Feature_Flags;
 use Google\Site_Kit\Core\Util\Method_Proxy_Trait;
 
 /**
@@ -70,7 +70,9 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 	 * @return array
 	 */
 	protected function get_default() {
-		$defaults = array(
+		return array(
+			'contentPolicyState'                => '',
+			'policyInfoLink'                    => '',
 			'ownerID'                           => 0,
 			'publicationID'                     => '',
 			'publicationOnboardingState'        => '',
@@ -81,12 +83,6 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 			'postTypes'                         => array( 'post' ),
 			'productID'                         => 'openaccess',
 		);
-
-		if ( Feature_Flags::enabled( 'rrmPolicyViolations' ) ) {
-			$defaults['contentPolicyStatus'] = (object) array();
-		}
-
-		return $defaults;
 	}
 
 	/**
@@ -189,11 +185,12 @@ class Settings extends Module_Settings implements Setting_With_Owned_Keys_Interf
 				}
 			}
 
-			if ( Feature_Flags::enabled( 'rrmPolicyViolations' ) && isset( $option['contentPolicyStatus'] ) ) {
-				// If the `contentPolicyStatus` setting is not an associative array, set it to an empty object.
-				if ( ! ( is_array( $option['contentPolicyStatus'] ) && ! BC_Functions::array_is_list( $option['contentPolicyStatus'] ) ) ) {
-					$option['contentPolicyStatus'] = (object) array();
-				}
+			if ( isset( $option['contentPolicyState'] ) && ! is_string( $option['contentPolicyState'] ) ) {
+				$option['contentPolicyState'] = '';
+			}
+
+			if ( isset( $option['policyInfoLink'] ) && ! is_string( $option['policyInfoLink'] ) ) {
+				$option['policyInfoLink'] = '';
 			}
 
 			return $option;

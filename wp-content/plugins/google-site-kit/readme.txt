@@ -2,9 +2,9 @@
 
 Contributors:      google
 Requires at least: 5.2
-Tested up to:      6.9
+Tested up to:      7.0
 Requires PHP:      7.4
-Stable tag:        1.172.0
+Stable tag:        1.181.0
 License:           Apache License 2.0
 License URI:       https://www.apache.org/licenses/LICENSE-2.0
 Tags:              google, search-console, analytics, adsense, pagespeed-insights
@@ -34,6 +34,9 @@ Site Kit shows key metrics and insights from different Google products:
 * **AdSense:** Keep track of how much your site is earning you.
 * **PageSpeed Insights:** See how your pages perform compared to other real-world sites. Improve performance with actionable tips from PageSpeed Insights.
 * **Tag Manager:** Use Site Kit to easily set up Tag Manager- no code editing required. Then, manage your tags in Tag Manager.
+* **Sign in with Google:** Allows visitors to sign up and log in to your site with their existing Google account.
+* **Reader Revenue Manager:** Helps you grow, retain, and engage your site visitors via subscription, contribution, newsletters, surveys, and custom prompts.
+* **Ads:** Get customers and sell more with targeted traffic from Google Ads.
 
 == Installation ==
 
@@ -109,34 +112,35 @@ Please create a new topic on our [WordPress.org support forum](https://wordpress
 
 == Changelog ==
 
-= 1.172.0 =
+= 1.181.0 =
 
 **Enhanced**
 
-* Update generated PHP client library for Reader Revenue Manager. See [#12077](https://github.com/google/site-kit-wp/issues/12077).
-* Update the Welcome modal's close button interaction states (hover, active, focus) to match the new design. See [#12045](https://github.com/google/site-kit-wp/issues/12045).
-* Add Reader Revenue Manager setup success notification variants for publications with policy violations. See [#12015](https://github.com/google/site-kit-wp/issues/12015).
-* Add dashboard notifications for Reader Revenue Manager policy violations. See [#12005](https://github.com/google/site-kit-wp/issues/12005).
-* Fix bug that could cause tooltips to stay on-screen when the email frequency panel is opened. See [#11968](https://github.com/google/site-kit-wp/issues/11968).
-* Improve Analytics notice button behaviour and text in Email Reporting UI. See [#11960](https://github.com/google/site-kit-wp/issues/11960).
-* Add internal tracking for WP Pointer. See [#11932](https://github.com/google/site-kit-wp/issues/11932).
-* Add module disconnection tracking functionality. See [#11883](https://github.com/google/site-kit-wp/issues/11883).
-* Add error notices for the Email Reporting sending failures. See [#11861](https://github.com/google/site-kit-wp/issues/11861).
-* Implement error notice infrastructure in admin settings and email reports subscription panel. See [#11860](https://github.com/google/site-kit-wp/issues/11860).
-* Add eligible subscribers selector to email reporting datastore. See [#11858](https://github.com/google/site-kit-wp/issues/11858).
-* Share API requests for shared modules between users when generating email reports. See [#11845](https://github.com/google/site-kit-wp/issues/11845).
-* Prevent the Site Kit setup success notification from appearing when the Welcome modal is displayed. See [#11819](https://github.com/google/site-kit-wp/issues/11819).
-* Update the Analytics setup CTA shown in the Search Funnel widget, WP Dashboard and Admin Bar app, and make it dismissible. See [#11816](https://github.com/google/site-kit-wp/issues/11816).
-* Add new setup flow Analytics-connected dashboard tour. See [#11813](https://github.com/google/site-kit-wp/issues/11813).
-* Update info tooltips to be tappable. See [#11681](https://github.com/google/site-kit-wp/issues/11681).
-* Standardise the implementation of the user and view-only user menu. See [#11520](https://github.com/google/site-kit-wp/issues/11520).
+* Add custom dimension breakdown notice message to Site Goals widgets/side panel settings. See [#12800](https://github.com/google/site-kit-wp/issues/12800).
+* Add an auto-updates opt-in checkbox to the plugin activation banner, allowing users to enable automatic updates when starting the setup process. See [#12793](https://github.com/google/site-kit-wp/issues/12793).
+* Update the Welcome modal's copy for view-only users. See [#12792](https://github.com/google/site-kit-wp/issues/12792).
+* Update the new splash screen's copy for secondary administrators. See [#12790](https://github.com/google/site-kit-wp/issues/12790).
+* Update Site Goals settings to be persisted in the user settings. See [#12780](https://github.com/google/site-kit-wp/issues/12780).
+* Add new dimensions for events using Event Providers in Extended Conversion Tracking. See [#12775](https://github.com/google/site-kit-wp/issues/12775).
+* Update Site Goals widgets not to show up if no event provider plugins are activated. See [#12765](https://github.com/google/site-kit-wp/issues/12765).
+* Add Custom Dimensions setup in Analytics Settings. See [#12738](https://github.com/google/site-kit-wp/issues/12738).
+* Add Top Authors goal driver to goal drivers section and side panel. See [#12734](https://github.com/google/site-kit-wp/issues/12734).
+* Update the PDF orchestrator and side sheet to be driven from the widget registry and core/pdf store. See [#12631](https://github.com/google/site-kit-wp/issues/12631).
+* Add PDF Report support for the All Traffic Widget. See [#12630](https://github.com/google/site-kit-wp/issues/12630).
+* Add Site Goals feature tour. See [#12600](https://github.com/google/site-kit-wp/issues/12600).
+* Standardize icon sizes in navigation links. See [#12598](https://github.com/google/site-kit-wp/issues/12598).
+* Update Analytics setup redirects to use golink format. See [#12579](https://github.com/google/site-kit-wp/issues/12579).
+* Add support for manual download and retry in PDF generation snackbars. See [#12562](https://github.com/google/site-kit-wp/issues/12562).
+* Implement an MVP that exports a basic PDF document. See [#12536](https://github.com/google/site-kit-wp/issues/12536).
+* Scroll to bring the Internal Server Error banner into view when it's displayed. See [#12445](https://github.com/google/site-kit-wp/issues/12445).
+* Add the splash screen Analytics activation error notification to Storybook. See [#12372](https://github.com/google/site-kit-wp/issues/12372).
+* Update the secondary header font size in the “Top Earning Pages” widget. See [#11640](https://github.com/google/site-kit-wp/issues/11640).
+* Simplify inline module data handling. See [#11120](https://github.com/google/site-kit-wp/issues/11120).
 
 **Fixed**
 
-* Fix redirect URLs used when the new setup flow is enabled. See [#12061](https://github.com/google/site-kit-wp/issues/12061).
-* Update Email Reporting templates to address minor issues. See [#11963](https://github.com/google/site-kit-wp/issues/11963).
-* Fix Email Reporting subscription panel issues on module setup screens. See [#11958](https://github.com/google/site-kit-wp/issues/11958).
-* Fix sending Email Reporting emails in multisite mode. See [#11955](https://github.com/google/site-kit-wp/issues/11955).
-* Fix bug that could cause administrators on multisites to be unable to access shared dashboard without signing in to their Google account. See [#11953](https://github.com/google/site-kit-wp/issues/11953).
+* Fix Site Goals intro banner issue when the banner shows up to users with no GA access. See [#12786](https://github.com/google/site-kit-wp/issues/12786).
+* Fix the dashboard tour showing incorrect steps for view-only users without Analytics access. See [#12719](https://github.com/google/site-kit-wp/issues/12719).
+* Update icon color in help menu. Props omribz156. See [#12714](https://github.com/google/site-kit-wp/issues/12714).
 
 [See changelog for all versions](https://raw.githubusercontent.com/google/site-kit-wp/main/changelog.txt).
